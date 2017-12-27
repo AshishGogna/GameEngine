@@ -1,24 +1,24 @@
 //
-//  GEWindow.cpp
+//  Window.cpp
 //  GameEngine
 //
 //  Created by Ashish Gogna on 27/12/17.
 //  Copyright © 2017 Ashish Gogna. All rights reserved.
 //
 
-#include "GEWindow.hpp"
+#include "Window.hpp"
 
-GEWindow::GEWindow()
+Window::Window()
 {
     Init(800, 600, "A Window");
 }
 
-GEWindow::GEWindow(int w, int h, const char *t)
+Window::Window(int w, int h, const char *t)
 {
     Init(w, h, t);
 }
 
-void GEWindow::Init(int w, int h, const char *t)
+void Window::Init(int w, int h, const char *t)
 {
     //Test code
     if (!glfwInit()) exit(EXIT_FAILURE);
@@ -30,34 +30,34 @@ void GEWindow::Init(int w, int h, const char *t)
     glfwMakeContextCurrent(window);
 }
 
-bool GEWindow::isCloseRequested()
+bool Window::isCloseRequested()
 {
     return (glfwWindowShouldClose(window));
 }
 
-void GEWindow::Update()
+void Window::Update()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glfwSwapBuffers(window);
     glfwPollEvents();
 }
 
-void GEWindow::Terminate()
+void Window::Terminate()
 {
     glfwTerminate();
 }
 
-int GEWindow::GetWidth()
+int Window::tWidth()
 {
     return width;
 }
 
-int GEWindow::GetHeight()
+int Window::tHeight()
 {
     return height;
 }
 
-const char *GEWindow::GetTitle()
+const char *Window::tTitle()
 {
     return title;
 }

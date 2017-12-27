@@ -8,16 +8,28 @@
 
 #include <stdio.h>
 #include <iostream>
-#include "GEWindow.hpp"
+#include "Window.hpp"
+#include "Vector2.hpp"
+#include "Vector3.hpp"
+#include "Matrix4.hpp"
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
 
-    GEWindow window = GEWindow();
+    Vector2 v = Vector2(10, 12);
+    cout << v.ToString() << endl;
+    
+    Vector3 v3 = Vector3(10, 12, 24);
+    cout << v3.ToString() << endl;
+    
+    Matrix4 m = Matrix4().InitIdentity();
+    cout << m.ToString() << endl;
+    
+    Window window = Window();
     while (!window.isCloseRequested())
     {
-        window.Clear();
+        window.Update();
     }
     window.Terminate();
     

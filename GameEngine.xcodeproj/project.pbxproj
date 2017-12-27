@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		232803471FF36DA900365AA6 /* GEWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 232803451FF36DA900365AA6 /* GEWindow.cpp */; };
+		232803471FF36DA900365AA6 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 232803451FF36DA900365AA6 /* Window.cpp */; };
+		2328034B1FF3785700365AA6 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 232803491FF3785700365AA6 /* Game.cpp */; };
+		2328034E1FF379B700365AA6 /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2328034C1FF379B700365AA6 /* Vector2.cpp */; };
+		232803511FF37F2500365AA6 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2328034F1FF37F2500365AA6 /* Vector3.cpp */; };
+		232803541FF382F700365AA6 /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 232803521FF382F700365AA6 /* Matrix4.cpp */; };
 		234971001FF22B41005B0931 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234970FF1FF22B41005B0931 /* main.cpp */; settings = {COMPILER_FLAGS = "-framework openGL"; }; };
 		234971081FF22B4D005B0931 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234971071FF22B4D005B0931 /* OpenGL.framework */; };
 		2349710C1FF23727005B0931 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2349710B1FF23727005B0931 /* libGLEW.2.1.0.dylib */; };
@@ -30,8 +34,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		232803451FF36DA900365AA6 /* GEWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GEWindow.cpp; path = Core/GEWindow.cpp; sourceTree = "<group>"; };
-		232803461FF36DA900365AA6 /* GEWindow.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GEWindow.hpp; path = Core/GEWindow.hpp; sourceTree = "<group>"; };
+		232803451FF36DA900365AA6 /* Window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = Core/Window.cpp; sourceTree = "<group>"; };
+		232803461FF36DA900365AA6 /* Window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Window.hpp; path = Core/Window.hpp; sourceTree = "<group>"; };
+		232803491FF3785700365AA6 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Game.cpp; path = Core/Game.cpp; sourceTree = "<group>"; };
+		2328034A1FF3785700365AA6 /* Game.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Game.hpp; path = Core/Game.hpp; sourceTree = "<group>"; };
+		2328034C1FF379B700365AA6 /* Vector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2.cpp; path = Core/Vector2.cpp; sourceTree = "<group>"; };
+		2328034D1FF379B700365AA6 /* Vector2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Vector2.hpp; path = Core/Vector2.hpp; sourceTree = "<group>"; };
+		2328034F1FF37F2500365AA6 /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector3.cpp; path = Core/Vector3.cpp; sourceTree = "<group>"; };
+		232803501FF37F2500365AA6 /* Vector3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Vector3.hpp; path = Core/Vector3.hpp; sourceTree = "<group>"; };
+		232803521FF382F700365AA6 /* Matrix4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Matrix4.cpp; path = Core/Matrix4.cpp; sourceTree = "<group>"; };
+		232803531FF382F700365AA6 /* Matrix4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Matrix4.hpp; path = Core/Matrix4.hpp; sourceTree = "<group>"; };
 		234970FC1FF22B41005B0931 /* GameEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GameEngine; sourceTree = BUILT_PRODUCTS_DIR; };
 		234970FF1FF22B41005B0931 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		234971071FF22B4D005B0931 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -63,8 +75,16 @@
 		232803481FF36DAF00365AA6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				232803451FF36DA900365AA6 /* GEWindow.cpp */,
-				232803461FF36DA900365AA6 /* GEWindow.hpp */,
+				232803451FF36DA900365AA6 /* Window.cpp */,
+				232803461FF36DA900365AA6 /* Window.hpp */,
+				232803491FF3785700365AA6 /* Game.cpp */,
+				2328034A1FF3785700365AA6 /* Game.hpp */,
+				2328034C1FF379B700365AA6 /* Vector2.cpp */,
+				2328034D1FF379B700365AA6 /* Vector2.hpp */,
+				2328034F1FF37F2500365AA6 /* Vector3.cpp */,
+				232803501FF37F2500365AA6 /* Vector3.hpp */,
+				232803521FF382F700365AA6 /* Matrix4.cpp */,
+				232803531FF382F700365AA6 /* Matrix4.hpp */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -166,8 +186,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2328034B1FF3785700365AA6 /* Game.cpp in Sources */,
+				232803511FF37F2500365AA6 /* Vector3.cpp in Sources */,
+				2328034E1FF379B700365AA6 /* Vector2.cpp in Sources */,
+				232803541FF382F700365AA6 /* Matrix4.cpp in Sources */,
 				234971001FF22B41005B0931 /* main.cpp in Sources */,
-				232803471FF36DA900365AA6 /* GEWindow.cpp in Sources */,
+				232803471FF36DA900365AA6 /* Window.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

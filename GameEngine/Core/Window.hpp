@@ -1,13 +1,13 @@
 //
-//  GEWindow.hpp
+//  Window.hpp
 //  GameEngine
 //
 //  Created by Ashish Gogna on 27/12/17.
 //  Copyright © 2017 Ashish Gogna. All rights reserved.
 //
 
-#ifndef GEWindow_hpp
-#define GEWindow_hpp
+#ifndef Window_hpp
+#define Window_hpp
 
 #include <stdio.h>
 #include <iostream>
@@ -16,9 +16,9 @@
 #include <GLFW/glfw3.h>
 #include <OpenGL/OpenGL.h>
 
-#endif /* GEWindow_hpp */
+#endif /* Window_hpp */
 
-class GEWindow
+class Window
 {
 private:
     int width;
@@ -28,14 +28,14 @@ private:
     void Init(int w, int h, const char *t);
     
 public:
-    GEWindow();
-    GEWindow(int w, int h, const char *t);
+    Window();
+    Window(int w, int h, const char *t);
 
     bool isCloseRequested();
     void Update();
     void Terminate();
 
-    int GetWidth();
-    int GetHeight();
-    const char *GetTitle();
+    int tWidth();
+    int tHeight();
+    const char *tTitle();
 };
