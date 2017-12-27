@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		232803471FF36DA900365AA6 /* GEWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 232803451FF36DA900365AA6 /* GEWindow.cpp */; };
 		234971001FF22B41005B0931 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234970FF1FF22B41005B0931 /* main.cpp */; settings = {COMPILER_FLAGS = "-framework openGL"; }; };
 		234971081FF22B4D005B0931 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234971071FF22B4D005B0931 /* OpenGL.framework */; };
 		2349710C1FF23727005B0931 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2349710B1FF23727005B0931 /* libGLEW.2.1.0.dylib */; };
@@ -29,6 +30,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		232803451FF36DA900365AA6 /* GEWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GEWindow.cpp; path = Core/GEWindow.cpp; sourceTree = "<group>"; };
+		232803461FF36DA900365AA6 /* GEWindow.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GEWindow.hpp; path = Core/GEWindow.hpp; sourceTree = "<group>"; };
 		234970FC1FF22B41005B0931 /* GameEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GameEngine; sourceTree = BUILT_PRODUCTS_DIR; };
 		234970FF1FF22B41005B0931 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		234971071FF22B4D005B0931 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -57,6 +60,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		232803481FF36DAF00365AA6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				232803451FF36DA900365AA6 /* GEWindow.cpp */,
+				232803461FF36DA900365AA6 /* GEWindow.hpp */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		234970F31FF22B41005B0931 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +89,7 @@
 		234970FE1FF22B41005B0931 /* GameEngine */ = {
 			isa = PBXGroup;
 			children = (
+				232803481FF36DAF00365AA6 /* Core */,
 				234970FF1FF22B41005B0931 /* main.cpp */,
 			);
 			path = GameEngine;
@@ -154,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				234971001FF22B41005B0931 /* main.cpp in Sources */,
+				232803471FF36DA900365AA6 /* GEWindow.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

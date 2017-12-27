@@ -8,22 +8,18 @@
 
 #include <stdio.h>
 #include <iostream>
-#define GLEW_STATIC
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <OpenGL/OpenGL.h>
+#include "GEWindow.hpp"
+
+using namespace std;
 
 int main(int argc, const char * argv[]) {
 
-    //Test code
-    GLFWwindow *window;
-    if (!glfwInit()) exit(EXIT_FAILURE);
-    window = glfwCreateWindow(1024, 768, "glfw", NULL, NULL);
-    if (!window) {
-        glfwTerminate();
-        exit(EXIT_FAILURE);
+    GEWindow window = GEWindow();
+    while (!window.isCloseRequested())
+    {
+        window.Clear();
     }
-    glfwMakeContextCurrent(window);
+    window.Terminate();
     
     return 0;
 }
