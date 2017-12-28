@@ -8,19 +8,13 @@
 
 #include "Window.hpp"
 
-Window::Window()
-{
-    Init(800, 600, "A Window");
-}
+int Window::width;
+int Window::height;
+string Window::title;
+GLFWwindow* Window::window;
 
-Window::Window(int w, int h, const char *t)
+void Window::CreateWindow(int w, int h, const char *t)
 {
-    Init(w, h, t);
-}
-
-void Window::Init(int w, int h, const char *t)
-{
-    //Test code
     if (!glfwInit()) exit(EXIT_FAILURE);
     window = glfwCreateWindow(w, h, t, NULL, NULL);
     if (!window) {
@@ -35,29 +29,29 @@ bool Window::isCloseRequested()
     return (glfwWindowShouldClose(window));
 }
 
-void Window::Update()
+void Window::Render()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glfwSwapBuffers(window);
     glfwPollEvents();
 }
 
-void Window::Terminate()
+void Window::Dispose()
 {
     glfwTerminate();
 }
 
-int Window::tWidth()
+int Window::getWidth()
 {
     return width;
 }
 
-int Window::tHeight()
+int Window::getHeight()
 {
     return height;
 }
 
-const char *Window::tTitle()
+string Window::getTitle()
 {
     return title;
 }

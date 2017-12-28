@@ -18,24 +18,24 @@
 
 #endif /* Window_hpp */
 
+using namespace std;
+
 class Window
 {
 private:
-    int width;
-    int height;
-    const char *title;
-    GLFWwindow *window;
-    void Init(int w, int h, const char *t);
-    
+    static int width;
+    static int height;
+    static string title;
+    static GLFWwindow *window;
+
 public:
-    Window();
-    Window(int w, int h, const char *t);
+    static void CreateWindow(int w, int h, const char *t);
 
-    bool isCloseRequested();
-    void Update();
-    void Terminate();
+    static bool isCloseRequested();
+    static void Render();
+    static void Dispose();
 
-    int tWidth();
-    int tHeight();
-    const char *tTitle();
+    int getWidth();
+    int getHeight();
+    string getTitle();
 };

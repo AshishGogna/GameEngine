@@ -20,9 +20,9 @@ class Vector3
 {
     
 public:
-    int x, y, z;
+    float x, y, z;
     
-    Vector3(int x, int y, int z);
+    Vector3(float x, float y, float z);
     
     float Length();
     float Dot(Vector3 v);

@@ -9,7 +9,7 @@
 #include "Vector3.hpp"
 #include <math.h>
 
-Vector3::Vector3(int x, int y, int z)
+Vector3::Vector3(float x, float y, float z)
 {
     this->x = x;
     this->y = y;

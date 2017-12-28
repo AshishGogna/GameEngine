@@ -20,9 +20,9 @@ class Vector2
 {
     
 public:
-    int x, y;
+    float x, y;
 
-    Vector2(int x, int y);
+    Vector2(float x, float y);
     
     float Length();
     float Dot(Vector2);
