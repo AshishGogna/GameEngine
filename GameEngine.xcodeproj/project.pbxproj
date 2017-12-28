@@ -18,6 +18,7 @@
 		235AB90A1FF4AE9700160ECC /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235AB9081FF4AE9700160ECC /* Quaternion.cpp */; };
 		235AB90D1FF4B34C00160ECC /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235AB90B1FF4B34C00160ECC /* Main.cpp */; };
 		235AB9101FF4B59900160ECC /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235AB90E1FF4B59900160ECC /* Time.cpp */; };
+		235AB9131FF4CF0700160ECC /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235AB9111FF4CF0700160ECC /* Input.cpp */; };
 		23C4E8131FF365FF0069E63E /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C4E8121FF365FF0069E63E /* CoreVideo.framework */; };
 		23C4E8151FF366040069E63E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C4E8141FF366040069E63E /* CoreFoundation.framework */; };
 		23C4E8171FF3660A0069E63E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C4E8161FF3660A0069E63E /* IOKit.framework */; };
@@ -58,6 +59,8 @@
 		235AB90C1FF4B34C00160ECC /* Main.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Main.hpp; path = Core/Main.hpp; sourceTree = "<group>"; };
 		235AB90E1FF4B59900160ECC /* Time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Time.cpp; path = Core/Time.cpp; sourceTree = "<group>"; };
 		235AB90F1FF4B59900160ECC /* Time.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Time.hpp; path = Core/Time.hpp; sourceTree = "<group>"; };
+		235AB9111FF4CF0700160ECC /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Input.cpp; path = Core/Input.cpp; sourceTree = "<group>"; };
+		235AB9121FF4CF0700160ECC /* Input.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Input.hpp; path = Core/Input.hpp; sourceTree = "<group>"; };
 		23C4E8121FF365FF0069E63E /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		23C4E8141FF366040069E63E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		23C4E8161FF3660A0069E63E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -100,6 +103,8 @@
 				235AB90C1FF4B34C00160ECC /* Main.hpp */,
 				235AB90E1FF4B59900160ECC /* Time.cpp */,
 				235AB90F1FF4B59900160ECC /* Time.hpp */,
+				235AB9111FF4CF0700160ECC /* Input.cpp */,
+				235AB9121FF4CF0700160ECC /* Input.hpp */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				2328034B1FF3785700365AA6 /* Game.cpp in Sources */,
 				232803511FF37F2500365AA6 /* Vector3.cpp in Sources */,
 				2328034E1FF379B700365AA6 /* Vector2.cpp in Sources */,
+				235AB9131FF4CF0700160ECC /* Input.cpp in Sources */,
 				232803541FF382F700365AA6 /* Matrix4.cpp in Sources */,
 				234971001FF22B41005B0931 /* main.cpp in Sources */,
 				235AB90A1FF4AE9700160ECC /* Quaternion.cpp in Sources */,

@@ -9,6 +9,7 @@
 #include "Main.hpp"
 #include "Time.hpp"
 #include "Window.hpp"
+#include "Input.hpp"
 
 Main::Main()
 {
@@ -57,6 +58,7 @@ void Main::Run()
             Time::SetDelta(frameTime);
             
             game.Input();
+            Input::Update();
             game.Update();
             
         }
