@@ -22,6 +22,15 @@ void Window::CreateWindow(int w, int h, const char *t)
         exit(EXIT_FAILURE);
     }
     glfwMakeContextCurrent(window);
+
+    glewExperimental = true;
+    
+    if(glewInit() != GLEW_OK) {
+        cout << "Failed to initialize GLEW... exiting" << endl;
+        exit(EXIT_FAILURE);
+    }
+    
+    cout << "aa" << endl;
 }
 
 bool Window::isCloseRequested()
@@ -31,7 +40,6 @@ bool Window::isCloseRequested()
 
 void Window::Render()
 {
-    glClear(GL_COLOR_BUFFER_BIT);
     glfwSwapBuffers(window);
     glfwPollEvents();
 }

@@ -9,6 +9,11 @@
 #include "Vector3.hpp"
 #include <math.h>
 
+Vector3::Vector3()
+{
+    
+}
+
 Vector3::Vector3(float x, float y, float z)
 {
     this->x = x;

@@ -23,6 +23,10 @@
 		23C4E8151FF366040069E63E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C4E8141FF366040069E63E /* CoreFoundation.framework */; };
 		23C4E8171FF3660A0069E63E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C4E8161FF3660A0069E63E /* IOKit.framework */; };
 		23C4E8191FF3660E0069E63E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C4E8181FF3660E0069E63E /* Cocoa.framework */; };
+		23EB17731FF6026E00D3DC5E /* RenderUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23EB17711FF6026E00D3DC5E /* RenderUtil.cpp */; };
+		23EB17761FF60E5D00D3DC5E /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23EB17741FF60E5D00D3DC5E /* Vertex.cpp */; };
+		23EB17791FF6113600D3DC5E /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23EB17771FF6113600D3DC5E /* Mesh.cpp */; };
+		23EB177C1FF6176C00D3DC5E /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23EB177A1FF6176C00D3DC5E /* Util.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +69,14 @@
 		23C4E8141FF366040069E63E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		23C4E8161FF3660A0069E63E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		23C4E8181FF3660E0069E63E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		23EB17711FF6026E00D3DC5E /* RenderUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RenderUtil.cpp; path = Core/RenderUtil.cpp; sourceTree = "<group>"; };
+		23EB17721FF6026E00D3DC5E /* RenderUtil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RenderUtil.hpp; path = Core/RenderUtil.hpp; sourceTree = "<group>"; };
+		23EB17741FF60E5D00D3DC5E /* Vertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vertex.cpp; path = Core/Vertex.cpp; sourceTree = "<group>"; };
+		23EB17751FF60E5D00D3DC5E /* Vertex.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Vertex.hpp; path = Core/Vertex.hpp; sourceTree = "<group>"; };
+		23EB17771FF6113600D3DC5E /* Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Mesh.cpp; path = Core/Mesh.cpp; sourceTree = "<group>"; };
+		23EB17781FF6113600D3DC5E /* Mesh.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Mesh.hpp; path = Core/Mesh.hpp; sourceTree = "<group>"; };
+		23EB177A1FF6176C00D3DC5E /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Util.cpp; path = Core/Util.cpp; sourceTree = "<group>"; };
+		23EB177B1FF6176C00D3DC5E /* Util.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Util.hpp; path = Core/Util.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +117,14 @@
 				235AB90F1FF4B59900160ECC /* Time.hpp */,
 				235AB9111FF4CF0700160ECC /* Input.cpp */,
 				235AB9121FF4CF0700160ECC /* Input.hpp */,
+				23EB17711FF6026E00D3DC5E /* RenderUtil.cpp */,
+				23EB17721FF6026E00D3DC5E /* RenderUtil.hpp */,
+				23EB17741FF60E5D00D3DC5E /* Vertex.cpp */,
+				23EB17751FF60E5D00D3DC5E /* Vertex.hpp */,
+				23EB17771FF6113600D3DC5E /* Mesh.cpp */,
+				23EB17781FF6113600D3DC5E /* Mesh.hpp */,
+				23EB177A1FF6176C00D3DC5E /* Util.cpp */,
+				23EB177B1FF6176C00D3DC5E /* Util.hpp */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -210,12 +230,16 @@
 				2328034B1FF3785700365AA6 /* Game.cpp in Sources */,
 				232803511FF37F2500365AA6 /* Vector3.cpp in Sources */,
 				2328034E1FF379B700365AA6 /* Vector2.cpp in Sources */,
+				23EB17791FF6113600D3DC5E /* Mesh.cpp in Sources */,
+				23EB17731FF6026E00D3DC5E /* RenderUtil.cpp in Sources */,
 				235AB9131FF4CF0700160ECC /* Input.cpp in Sources */,
 				232803541FF382F700365AA6 /* Matrix4.cpp in Sources */,
 				234971001FF22B41005B0931 /* main.cpp in Sources */,
 				235AB90A1FF4AE9700160ECC /* Quaternion.cpp in Sources */,
+				23EB17761FF60E5D00D3DC5E /* Vertex.cpp in Sources */,
 				235AB90D1FF4B34C00160ECC /* Main.cpp in Sources */,
 				232803471FF36DA900365AA6 /* Window.cpp in Sources */,
+				23EB177C1FF6176C00D3DC5E /* Util.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

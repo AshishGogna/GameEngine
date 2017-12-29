@@ -8,10 +8,14 @@
 
 #include <stdio.h>
 #include <iostream>
+#include "Main.hpp"
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
 
+    Main m = Main();
+    m.Start();
+    
     return 0;
 }

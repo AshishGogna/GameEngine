@@ -9,3 +9,7 @@
 #include "Input.hpp"
 #include <GLFW/glfw3.h>
 
+void Input::Update()
+{
+    
+}

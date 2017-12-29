@@ -26,7 +26,7 @@ private:
 public:
     const int WIDTH = 800;
     const int HEIGHT = 600;
-    const string TITLE = "Gogna Engine";
+    const char* TITLE = "Gogna Engine";
     const double FRAME_CAP = 5000.0;
 
     Main();

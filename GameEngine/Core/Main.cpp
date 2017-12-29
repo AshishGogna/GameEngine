@@ -10,15 +10,20 @@
 #include "Time.hpp"
 #include "Window.hpp"
 #include "Input.hpp"
+#include <thread>
+#include "RenderUtil.hpp"
 
 Main::Main()
 {
+    Window::CreateWindow(WIDTH, HEIGHT, TITLE);
+    RenderUtil::InitGraphics();
+    
     isRunning = false;
-    game = Game();
 }
 
 void Main::Start()
 {
+    //game = Game();
     if (isRunning) return;
     Run();
 }
@@ -61,6 +66,36 @@ void Main::Run()
             Input::Update();
             game.Update();
             
+            if (frameCounter >= Time::SECOND)
+            {
+                cout << "Check: " << frames << endl;
+                frames = 0;
+                frameCounter = 0;
+            }
+        }
+        
+        if (render)
+        {
+            Render();
+            frames++;
+        }
+        else {
+            std::this_thread::sleep_for(std::chrono::milliseconds(1));
         }
     }
+    
+    CleanUp();
+}
+
+void Main::Render()
+{
+    RenderUtil::ClearScreen();
+    game.Render();
+    Window::Render();
+}
+
+void Main::CleanUp()
+{
+    Window::Dispose();
+    
 }

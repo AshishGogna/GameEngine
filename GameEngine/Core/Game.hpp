@@ -10,12 +10,14 @@
 #define Game_hpp
 
 #include <stdio.h>
+#include "Mesh.hpp"
 
 #endif /* Game_hpp */
 
 class Game
 {
 private:
+    Mesh mesh;
     
 public:
     Game();
