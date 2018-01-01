@@ -34,6 +34,7 @@ public:
     static bool isCloseRequested();
     static void Render();
     static void Dispose();
+    static bool isInitialized();
 
     int getWidth();
     int getHeight();

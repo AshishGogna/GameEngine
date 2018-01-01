@@ -29,8 +29,6 @@ void Window::CreateWindow(int w, int h, const char *t)
         cout << "Failed to initialize GLEW... exiting" << endl;
         exit(EXIT_FAILURE);
     }
-    
-    cout << "aa" << endl;
 }
 
 bool Window::isCloseRequested()
@@ -47,6 +45,11 @@ void Window::Render()
 void Window::Dispose()
 {
     glfwTerminate();
+}
+
+bool Window::isInitialized()
+{
+    return (window != NULL); //temp sol, i guess...
 }
 
 int Window::getWidth()

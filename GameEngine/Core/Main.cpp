@@ -17,13 +17,15 @@ Main::Main()
 {
     Window::CreateWindow(WIDTH, HEIGHT, TITLE);
     RenderUtil::InitGraphics();
-    
+
+    cout << RenderUtil::GetOpenGLVersion() << endl;
+
     isRunning = false;
 }
 
 void Main::Start()
 {
-    //game = Game();
+    game = Game();
     if (isRunning) return;
     Run();
 }

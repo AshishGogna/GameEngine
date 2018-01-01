@@ -32,3 +32,11 @@ void RenderUtil::InitGraphics()
     
     glEnable(GL_FRAMEBUFFER_SRGB);
 }
+
+std::string RenderUtil::GetOpenGLVersion()
+{
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+
+    return (char*)glGetString(GL_VERSION);
+}

@@ -10,6 +10,7 @@
 #define RenderUtil_hpp
 
 #include <stdio.h>
+#include <iostream>
 
 #endif /* RenderUtil_hpp */
 
@@ -18,4 +19,5 @@ class RenderUtil
 public:
     static void ClearScreen();
     static void InitGraphics();
+    static std::string GetOpenGLVersion();
 };
