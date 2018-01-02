@@ -74,8 +74,8 @@ void Shader::CompileShader()
     glLinkProgram(program); //Link and check
     glGetProgramiv(program, GL_LINK_STATUS, &result);
     if (result == 0)
-    {int infoLog;
-        
+    {
+        int infoLog;
         std::vector<char> programErrorMessage(infoLog+1);
         glGetProgramInfoLog(program, infoLog, NULL, &programErrorMessage[0]);
         std::cout << &programErrorMessage[0] << std::endl;
@@ -89,8 +89,10 @@ void Shader::CompileShader()
         int infoLog;
         std::vector<char> programErrorMessage(infoLog+1);
         glGetProgramInfoLog(program, infoLog, NULL, &programErrorMessage[0]);
+        /*
         std::cout << &programErrorMessage[0] << std::endl;
         exit(EXIT_FAILURE);
+         */
     }
 }
 

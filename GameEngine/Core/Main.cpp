@@ -91,9 +91,9 @@ void Main::Run()
 
 void Main::Render()
 {
+    Window::Render();
     RenderUtil::ClearScreen();
     game.Render();
-    Window::Render();
 }
 
 void Main::CleanUp()
