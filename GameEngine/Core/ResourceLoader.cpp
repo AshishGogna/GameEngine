@@ -11,13 +11,10 @@
 
 std::string ResourceLoader::LoadShader(std::string filePath)
 {
-    // Create the shaders
-    GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
-    GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
-
     std::string shaderCode;
-    std::ifstream shaderStream(filePath.c_str(), std::ios::in);
-
+    
+    std::ifstream shaderStream;
+    shaderStream.open(filePath.c_str(), std::ios::in);
     if(shaderStream.is_open())
     {
         std::string line = "";
@@ -29,8 +26,9 @@ std::string ResourceLoader::LoadShader(std::string filePath)
     }
     else
     {
-        std::cout << "Unable to open " << filePath << "." << std::endl;
+        //std::cerr << "Error: " << strerror(errno);
+        std::cout << "Unable to open " << filePath.c_str() << "." << std::endl;
     }
-    
+
     return shaderCode;
 }

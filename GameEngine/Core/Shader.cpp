@@ -8,9 +8,12 @@
 
 #include "Shader.hpp"
 #include <vector>
+#include "Window.hpp"
 
 Shader::Shader()
 {
+    if (!Window::isInitialized()) return;
+
     program = glCreateProgram();
     if (program == 0)
     {

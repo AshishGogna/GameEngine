@@ -15,6 +15,7 @@ GLFWwindow* Window::window;
 
 void Window::CreateWindow(int w, int h, const char *t)
 {
+
     if (!glfwInit()) exit(EXIT_FAILURE);
     window = glfwCreateWindow(w, h, t, NULL, NULL);
     if (!window) {
@@ -29,6 +30,7 @@ void Window::CreateWindow(int w, int h, const char *t)
         cout << "Failed to initialize GLEW... exiting" << endl;
         exit(EXIT_FAILURE);
     }
+    
 }
 
 bool Window::isCloseRequested()
