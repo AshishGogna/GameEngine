@@ -15,7 +15,7 @@
 #include <fstream>
 
 using namespace std;
-
+/*
 GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path){
     
     // Create the shaders
@@ -109,12 +109,14 @@ GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path
     
     return ProgramID;
 }
+*/
 
 int main(int argc, const char * argv[]) {
 
-    //Main m = Main();
-    //m.Start();
+    Main m = Main();
+    m.Start();
     
+    /*
     if( !glfwInit() )
     {
         fprintf( stderr, "Failed to initialize GLFW\n" );
@@ -197,6 +199,7 @@ int main(int argc, const char * argv[]) {
     } // Check if the ESC key was pressed or the window was closed
     while( glfwGetKey(window, GLFW_KEY_ESCAPE ) != GLFW_PRESS &&
           glfwWindowShouldClose(window) == 0 );
-
+    */
+    
     return 0;
 }

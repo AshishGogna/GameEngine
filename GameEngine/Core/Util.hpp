@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "Vertex.hpp"
 #include <vector>
+#include <iostream>
 
 #endif /* Util_hpp */
 
@@ -19,4 +20,6 @@ class Util
 {
 public:
     static void CreateFlippedBuffer(vector<Vertex> vertices);
+    static void Exit();
+    static void Print(std::string s);
 };

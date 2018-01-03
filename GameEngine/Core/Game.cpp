@@ -14,15 +14,15 @@ Game::Game()
 {
     if (!Window::isInitialized()) return;
 
+    //Mesh
     mesh = Mesh();
-    
     vector<Vertex> data{};
     data.push_back(Vertex(Vector3(-1, -1, 0)));
+    data.push_back(Vertex(Vector3(1, -1, 0)));
     data.push_back(Vertex(Vector3(0, 1, 0)));
-    data.push_back(Vertex(Vector3(-1, 1, 0)));
-
     mesh.AddVertices(data);
-    
+
+    //Shaders
     shader = Shader();
     shader.AddVertexShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicVertex.vs"));
     shader.AddFragmentShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicFragment.fs"));
@@ -43,4 +43,5 @@ void Game::Render()
 {
     shader.Bind();
     mesh.Draw();
+    Window::SwapBuffers();
 }

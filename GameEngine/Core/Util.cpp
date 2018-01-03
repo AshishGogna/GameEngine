@@ -7,3 +7,13 @@
 //
 
 #include "Util.hpp"
+
+void Util::Exit()
+{
+    exit(EXIT_FAILURE);
+}
+
+void Util::Print(std::string s)
+{
+    std::cout << s << endl;
+}

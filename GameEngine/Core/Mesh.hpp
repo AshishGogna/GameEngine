@@ -25,6 +25,10 @@ private:
     GLuint vbo;
     int size;
     vector<int> a;
+    GLuint programID;
+    
+    GLfloat* CreateBuffer(vector<Vertex> vertices);
+    
 public:
     Mesh();
     

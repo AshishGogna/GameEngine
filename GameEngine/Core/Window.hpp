@@ -26,13 +26,14 @@ private:
     static int width;
     static int height;
     static string title;
-    static GLFWwindow *window;
 
 public:
+    static GLFWwindow* window;
+
     static void CreateWindow(int w, int h, const char *t);
 
     static bool isCloseRequested();
-    static void Render();
+    static void SwapBuffers();
     static void Dispose();
     static bool isInitialized();
 

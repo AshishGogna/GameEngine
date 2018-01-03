@@ -7,6 +7,7 @@
 //
 
 #include "Window.hpp"
+#include "Util.hpp"
 
 int Window::width;
 int Window::height;
@@ -15,29 +16,37 @@ GLFWwindow* Window::window;
 
 void Window::CreateWindow(int w, int h, const char *t)
 {
-    //glfwCreateWindow(640, 480, "Hello World", NULL, NULL );
+    if( !glfwInit() )
+    {
+        Util::Print("Failed to initialize GLFW");
+        Util::Exit();
+    }
 
-    if (!glfwInit()) exit(EXIT_FAILURE);
-    
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_SAMPLES, 4); //4x antialiasing
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); //OpenGL 3.3
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); //We don't want the old OpenGL
 
-    window = glfwCreateWindow(w, h, t, NULL, NULL);
-    if (!window) {
+    // Open a window and create its OpenGL context
+    window = glfwCreateWindow( w, h, t, NULL, NULL);
+    if( window == NULL )
+    {
+        Util::Print("Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version.");
         glfwTerminate();
-        exit(EXIT_FAILURE);
+        Util::Exit();
     }
-    glfwMakeContextCurrent(window);
+    glfwMakeContextCurrent(window); //Initialize GLEW
+    glewExperimental=true; //Needed in core profile
+    if (glewInit() != GLEW_OK)
+    {
+        Util::Print("Failed to initialize GLEW");
+        Util::Exit();
+    }
 
-    glewExperimental = true;
-    
-    if(glewInit() != GLEW_OK) {
-        cout << "Failed to initialize GLEW... exiting" << endl;
-        exit(EXIT_FAILURE);
-    }
-    
+    GLuint VertexArrayID;
+    glGenVertexArrays(1, &VertexArrayID);
+    glBindVertexArray(VertexArrayID);
 }
 
 bool Window::isCloseRequested()
@@ -45,7 +54,7 @@ bool Window::isCloseRequested()
     return (glfwWindowShouldClose(window));
 }
 
-void Window::Render()
+void Window::SwapBuffers()
 {
     glfwSwapBuffers(window);
     glfwPollEvents();
