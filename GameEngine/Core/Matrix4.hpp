@@ -12,8 +12,6 @@
 #include <stdio.h>
 #include <iostream>
 
-#endif /* Matrix4_hpp */
-
 using namespace std;
 
 class Matrix4
@@ -32,3 +30,5 @@ public:
     
     string ToString();
 };
+
+#endif /* Matrix4_hpp */

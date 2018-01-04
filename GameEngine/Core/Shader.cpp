@@ -9,6 +9,7 @@
 #include "Shader.hpp"
 #include <vector>
 #include "Window.hpp"
+#include "Util.hpp"
 
 Shader::Shader()
 {
@@ -58,35 +59,6 @@ void Shader::AddProgram(std::string text, int type)
     }
 
     glAttachShader(program, VertexShaderID);
-    
-    /*
-    GLuint shader = glCreateShader(type);
-    
-    if (shader == 0)
-    {
-        if (program == 0) std::cout << "Shader creation failed when adding shader." << std::endl;
-        exit(EXIT_FAILURE);
-    }
-    
-    const char *textPointer = text.c_str();
-    glShaderSource(shader, 1, &textPointer, NULL);
-    glCompileShader(shader);
-    
-    GLint compileResult = GL_FALSE;
-    int  infoLog;
-    
-    glGetShaderiv(shader, GL_COMPILE_STATUS, &compileResult);
-    if (compileResult == 0)
-    {
-        std::vector<char> shaderErrorMessage(infoLog+1);
-        glGetShaderInfoLog(shader, infoLog, NULL, &shaderErrorMessage[0]);
-        std::cout << &shaderErrorMessage[0] << std::endl;
-        exit(EXIT_FAILURE);
-    }
-    
-    //glAttachShader(shader, program);
-    glAttachShader(program, shader);
-     */
 }
 
 void Shader::CompileShader()
@@ -105,27 +77,7 @@ void Shader::CompileShader()
         printf("%s\n", &ProgramErrorMessage[0]);
     }
     
-    
-    //glDetachShader(program, VertexShaderID);
-    //glDetachShader(program, FragmentShaderID);
-    
-    //glDeleteShader(VertexShaderID);
-    //glDeleteShader(FragmentShaderID);
-
     /*
-    GLint result = GL_FALSE;
-    
-    glLinkProgram(program); //Link and check
-    glGetProgramiv(program, GL_LINK_STATUS, &result);
-    if (result == 0)
-    {
-        int infoLog;
-        std::vector<char> programErrorMessage(infoLog+1);
-        glGetProgramInfoLog(program, infoLog, NULL, &programErrorMessage[0]);
-        std::cout << &programErrorMessage[0] << std::endl;
-        exit(EXIT_FAILURE);
-    }
-    
     glValidateProgram(program); // Validate and check
     glGetProgramiv(program, GL_VALIDATE_STATUS, &result);
     if (result == 0)
@@ -142,4 +94,54 @@ void Shader::CompileShader()
 void Shader::Bind()
 {
     glUseProgram(program);
+}
+
+void Shader::AddUniform(std::string uniform)
+{
+    GLint uniformLocation = glGetUniformLocation(program, uniform.c_str());
+
+    if (uniformLocation == 0xFFFFFFFF)
+    {
+        Util::Print("Could not find uniform :" + uniform);
+        Util::Exit();
+    }
+    
+    uniforms[uniform] = uniformLocation;
+}
+
+void Shader::SetUniformi(std::string uniform, int value)
+{
+    glUniform1i(uniforms[uniform], value);
+}
+
+void Shader::SetUniformf(std::string uniform, float value)
+{
+    glUniform1f(uniforms[uniform], value);
+}
+
+void Shader::SetUniform(std::string uniform, Vector3 value)
+{
+    glUniform3f(uniforms[uniform], value.x, value.y, value.z);
+}
+
+void Shader::SetUniform(std::string uniform, Matrix4 value)
+{
+    int size = 4*4;
+    GLfloat buffer[size];
+
+    //Matrix to buffer
+    int k = 0;
+    while (k < size)
+    {
+        for (int i=0; i<4; i++)
+        {
+            for (int j=0; j<4; j++)
+            {
+                buffer[k] = value.matrix[i][j];
+                k++;
+            }
+        }
+    }
+    
+    glUniformMatrix4fv(uniforms[uniform], 1, GL_FALSE, buffer);
 }

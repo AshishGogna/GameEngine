@@ -13,13 +13,14 @@
 #include "Vertex.hpp"
 #include <vector>
 #include <iostream>
-
-#endif /* Util_hpp */
+#include "Matrix4.hpp"
+#include <GL/glew.h>
 
 class Util
 {
 public:
-    static void CreateFlippedBuffer(vector<Vertex> vertices);
     static void Exit();
     static void Print(std::string s);
 };
+
+#endif /* Util_hpp */

@@ -12,6 +12,9 @@
 #include <stdio.h>
 #include <GL/glew.h>
 #include <iostream>
+#include <map>
+#include "Matrix4.hpp"
+#include "Vector3.hpp"
 
 #endif /* Shader_hpp */
 
@@ -19,6 +22,8 @@ class Shader
 {
 private:
     GLuint program;
+    std::map<std::string, int> uniforms;
+    
 public:
     Shader();
     
@@ -28,4 +33,10 @@ public:
     void AddProgram(std::string text, int type);
     void CompileShader();
     void Bind();
+    
+    void AddUniform(std::string uniform);
+    void SetUniformi(std::string uniform, int value);
+    void SetUniformf(std::string uniform, float value);
+    void SetUniform(std::string uniform, Vector3 value);
+    void SetUniform(std::string uniform, Matrix4 value);
 };

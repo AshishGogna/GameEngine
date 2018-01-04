@@ -12,8 +12,6 @@
 #include <stdio.h>
 #include "Vector3.hpp"
 
-#endif /* Vertex_hpp */
-
 class Vertex
 {
 public:
@@ -22,3 +20,5 @@ public:
     
     Vertex(Vector3 position);
 };
+
+#endif /* Vertex_hpp */

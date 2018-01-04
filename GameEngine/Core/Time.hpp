@@ -15,12 +15,11 @@
 
 class Time
 {
-private:
-    static double delta;
-
 public:
+    static double delta;
     static const long SECOND = 1000000000L;
     
     static long GetTime();
+    static void GetDelta();
     static void SetDelta(double d);
 };

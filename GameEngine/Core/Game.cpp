@@ -9,6 +9,9 @@
 #include "Game.hpp"
 #include "ResourceLoader.hpp"
 #include "Window.hpp"
+#include "Util.hpp"
+#include "Time.hpp"
+#include <math.h>
 
 Game::Game()
 {
@@ -27,6 +30,8 @@ Game::Game()
     shader.AddVertexShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicVertex.vs"));
     shader.AddFragmentShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicFragment.fs"));
     shader.CompileShader();
+    
+    shader.AddUniform("uf");
 }
 
 void Game::Input()
@@ -34,9 +39,12 @@ void Game::Input()
     
 }
 
+float temp = 0;
 void Game::Update()
 {
+    temp += Time::delta;
     
+    shader.SetUniformf("uf", sin(temp));
 }
 
 void Game::Render()

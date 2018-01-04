@@ -136,7 +136,6 @@ void Main::Stop()
 
 void Main::Run()
 {
-    /*
     isRunning = true;
     int frames = 0;
     long frameCounter = 0;
@@ -161,7 +160,7 @@ void Main::Run()
             unprocessedTime -= frameTime;
             if (Window::isCloseRequested()) Stop();
             
-            Time::SetDelta(frameTime);
+            Time::delta = frameTime;
             
             game.Input();
             Input::Update();
@@ -169,7 +168,7 @@ void Main::Run()
             
             if (frameCounter >= Time::SECOND)
             {
-                cout << "Check: " << frames << endl;
+                //cout << "Check: " << frames << endl;
                 frames = 0;
                 frameCounter = 0;
             }
@@ -184,12 +183,13 @@ void Main::Run()
             std::this_thread::sleep_for(std::chrono::milliseconds(1));
         }
     }
-    */
 
+    /*
     while (!Window::isCloseRequested())
     {
         Render();
     }
+    */
     
     //CleanUp();
 }

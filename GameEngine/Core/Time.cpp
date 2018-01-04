@@ -32,8 +32,3 @@ long Time::GetTime()
 
     return m;
 }
-
-void Time::SetDelta(double d)
-{
-    delta = d;
-}

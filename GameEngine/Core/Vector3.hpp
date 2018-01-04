@@ -12,8 +12,6 @@
 #include <stdio.h>
 #include <iostream>
 
-#endif /* Vector3_hpp */
-
 using namespace std;
 
 class Vector3
@@ -45,3 +43,5 @@ public:
     
     string ToString();
 };
+
+#endif /* Vector3_hpp */
