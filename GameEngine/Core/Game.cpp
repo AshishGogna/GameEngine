@@ -44,7 +44,7 @@ void Game::Update()
 {
     temp += Time::delta;
     
-    shader.SetUniformf("uf", sin(temp));
+    shader.SetUniformf("uf", fabs(sin(temp)));
 }
 
 void Game::Render()
