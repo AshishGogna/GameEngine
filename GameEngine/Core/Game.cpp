@@ -45,8 +45,12 @@ float temp = 0;
 void Game::Update()
 {
     temp += Time::delta;
-    transform.SetTranslation(sinf(temp), 0, 0);
-    transform.SetRotation(0, 0, sinf(temp) * 360);
+    
+    float sinTemp = sinf(temp);
+    
+    transform.SetTranslation(sinTemp, 0, 0);
+    transform.SetRotation(0, 0, sinTemp * 360);
+    transform.SetScale(sinTemp, sinTemp, sinTemp);
 }
 
 void Game::Render()

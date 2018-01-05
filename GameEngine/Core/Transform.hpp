@@ -18,12 +18,14 @@ class Transform
 public:
     Vector3 translation;
     Vector3 rotation;
+    Vector3 scale;
     
     Transform();
     
     Matrix4 GetTransformation();
     void SetTranslation(float x, float y, float z);
     void SetRotation(float x, float y, float z);
+    void SetScale(float x, float y, float z);
 };
 
 #endif /* Transform_hpp */
