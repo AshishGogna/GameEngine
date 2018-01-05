@@ -142,6 +142,6 @@ void Shader::SetUniform(std::string uniform, Matrix4 value)
             }
         }
     }
-    
-    glUniformMatrix4fv(uniforms[uniform], 1, GL_FALSE, buffer);
+
+    glUniformMatrix4fv(uniforms[uniform], 1, GL_TRUE, buffer);
 }

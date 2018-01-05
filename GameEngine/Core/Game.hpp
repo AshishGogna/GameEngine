@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "Mesh.hpp"
 #include "Shader.hpp"
+#include "Transform.hpp"
 
 #endif /* Game_hpp */
 
@@ -20,6 +21,7 @@ class Game
 private:
     Mesh mesh;
     Shader shader;
+    Transform transform;
     
 public:
     Game();

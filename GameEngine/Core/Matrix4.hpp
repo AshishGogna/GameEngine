@@ -25,6 +25,8 @@ public:
     Matrix4();
     Matrix4(float m[4][4]);
     Matrix4 InitIdentity();
+    Matrix4 InitTranslation(float x, float y, float z);
+    Matrix4 InitRotation(float x, float y, float z);
     
     Matrix4 Multiply(Matrix4 m);
     

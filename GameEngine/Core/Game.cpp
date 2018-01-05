@@ -31,7 +31,9 @@ Game::Game()
     shader.AddFragmentShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicFragment.fs"));
     shader.CompileShader();
     
-    shader.AddUniform("uf");
+    transform = Transform();
+    
+    shader.AddUniform("transform");
 }
 
 void Game::Input()
@@ -43,13 +45,16 @@ float temp = 0;
 void Game::Update()
 {
     temp += Time::delta;
-    
-    shader.SetUniformf("uf", fabs(sin(temp)));
+    transform.SetTranslation(sinf(temp), 0, 0);
+    transform.SetRotation(0, 0, sinf(temp) * 360);
 }
 
 void Game::Render()
 {
     shader.Bind();
+    
+    shader.SetUniform("transform", transform.GetTransformation());
+    
     mesh.Draw();
     Window::SwapBuffers();
 }

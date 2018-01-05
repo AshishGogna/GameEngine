@@ -12,6 +12,7 @@
 		2328034E1FF379B700365AA6 /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2328034C1FF379B700365AA6 /* Vector2.cpp */; };
 		232803511FF37F2500365AA6 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2328034F1FF37F2500365AA6 /* Vector3.cpp */; };
 		232803541FF382F700365AA6 /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 232803521FF382F700365AA6 /* Matrix4.cpp */; };
+		2330739C1FFF392300D38B12 /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2330739A1FFF392300D38B12 /* Transform.cpp */; };
 		234971001FF22B41005B0931 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 234970FF1FF22B41005B0931 /* main.cpp */; settings = {COMPILER_FLAGS = "-framework openGL"; }; };
 		234971081FF22B4D005B0931 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234971071FF22B4D005B0931 /* OpenGL.framework */; };
 		2349710C1FF23727005B0931 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2349710B1FF23727005B0931 /* libGLEW.2.1.0.dylib */; };
@@ -54,6 +55,8 @@
 		232803501FF37F2500365AA6 /* Vector3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Vector3.hpp; path = Core/Vector3.hpp; sourceTree = "<group>"; };
 		232803521FF382F700365AA6 /* Matrix4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Matrix4.cpp; path = Core/Matrix4.cpp; sourceTree = "<group>"; };
 		232803531FF382F700365AA6 /* Matrix4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Matrix4.hpp; path = Core/Matrix4.hpp; sourceTree = "<group>"; };
+		2330739A1FFF392300D38B12 /* Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Transform.cpp; path = Core/Transform.cpp; sourceTree = "<group>"; };
+		2330739B1FFF392300D38B12 /* Transform.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Transform.hpp; path = Core/Transform.hpp; sourceTree = "<group>"; };
 		234970FC1FF22B41005B0931 /* GameEngine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GameEngine; sourceTree = BUILT_PRODUCTS_DIR; };
 		234970FF1FF22B41005B0931 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		234971071FF22B4D005B0931 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -135,6 +138,8 @@
 				239205211FFA0E750016F165 /* ResourceLoader.hpp */,
 				239205231FFA113A0016F165 /* Shader.cpp */,
 				239205241FFA113A0016F165 /* Shader.hpp */,
+				2330739A1FFF392300D38B12 /* Transform.cpp */,
+				2330739B1FFF392300D38B12 /* Transform.hpp */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				234971001FF22B41005B0931 /* main.cpp in Sources */,
 				235AB90A1FF4AE9700160ECC /* Quaternion.cpp in Sources */,
 				23EB17761FF60E5D00D3DC5E /* Vertex.cpp in Sources */,
+				2330739C1FFF392300D38B12 /* Transform.cpp in Sources */,
 				235AB90D1FF4B34C00160ECC /* Main.cpp in Sources */,
 				232803471FF36DA900365AA6 /* Window.cpp in Sources */,
 				23EB177C1FF6176C00D3DC5E /* Util.cpp in Sources */,
