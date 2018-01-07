@@ -42,7 +42,7 @@ void Mesh::AddVertices(vector<Vertex> vertices, vector<int> indices)
     GLuint inds[size];
     for (int j=0; j<size; j++)
     {
-      inds[j] = indices[j];
+        inds[j] = indices[j];
     }
     
     glBindBuffer(GL_ARRAY_BUFFER, vbo);

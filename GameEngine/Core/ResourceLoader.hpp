@@ -12,7 +12,8 @@
 #include <stdio.h>
 #include <iostream>
 #include<fstream>
-
+#include "Mesh.hpp"
+#include <vector>
 
 #endif /* ResourceLoader_hpp */
 
@@ -20,4 +21,6 @@ class ResourceLoader
 {
 public:
     static std::string LoadShader(std::string filePath);
+    static Mesh LoadMesh(std::string filePath);
+    static vector<string> Split(std::string txt, char ch);
 };

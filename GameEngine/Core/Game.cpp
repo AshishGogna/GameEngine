@@ -18,6 +18,9 @@ Game::Game()
     if (!Window::isInitialized()) return;
 
     //Mesh
+    mesh = ResourceLoader::LoadMesh("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Models/Cube.obj");
+    
+    /*
     mesh = Mesh();
     vector<Vertex> vertices{};
     vertices.push_back(Vertex(Vector3(-1, -1, 0)));
@@ -25,11 +28,11 @@ Game::Game()
     vertices.push_back(Vertex(Vector3(1, -1, 0)));
     vertices.push_back(Vertex(Vector3(0, -1, 1)));
     
-    //vector<int> indices{};
     vector<int> indices = {0,1,3,3,1,2,2,1,0,0,2,3};
     
     mesh.AddVertices(vertices, indices);
-
+    */
+    
     //Shaders
     shader = Shader();
     shader.AddVertexShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicVertex.vs"));
@@ -53,9 +56,9 @@ void Game::Update()
     
     float sinTemp = sinf(temp);
     
-    transform.SetTranslation(sinTemp, 0, 0);
+    //transform.SetTranslation(sinTemp, 0, 0);
     transform.SetRotation(0, sinTemp * 360, 0);
-    transform.SetScale(sinTemp, sinTemp, sinTemp);
+    transform.SetScale(0.7*sinTemp, 0.7*sinTemp, 0.7*sinTemp);
 }
 
 void Game::Render()

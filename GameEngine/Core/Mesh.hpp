@@ -17,8 +17,6 @@
 #include "Vertex.hpp"
 #include <vector>
 
-#endif /* Mesh_hpp */
-
 class Mesh
 {
 private:
@@ -36,3 +34,5 @@ public:
     void AddVertices(vector<Vertex> vertices, vector<int> indices);
     void Draw();
 };
+
+#endif /* Mesh_hpp */
