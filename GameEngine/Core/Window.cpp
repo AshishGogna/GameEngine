@@ -47,6 +47,10 @@ void Window::CreateWindow(int w, int h, const char *t)
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
     glBindVertexArray(VertexArrayID);
+    
+    width = w;
+    height = h;
+    title = t;
 }
 
 bool Window::isCloseRequested()

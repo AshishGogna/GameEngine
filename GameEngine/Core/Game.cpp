@@ -40,6 +40,7 @@ Game::Game()
     shader.CompileShader();
     
     transform = Transform();
+    transform.SetProjection(70, Window::width, Window::height, 0.1, 1000);
     
     shader.AddUniform("transform");
 }
@@ -56,16 +57,16 @@ void Game::Update()
     
     float sinTemp = sinf(temp);
     
-    //transform.SetTranslation(sinTemp, 0, 0);
+    transform.SetTranslation(sinTemp, 0, 5);
     transform.SetRotation(0, sinTemp * 360, 0);
-    transform.SetScale(0.7*sinTemp, 0.7*sinTemp, 0.7*sinTemp);
+    //transform.SetScale(0.7*sinTemp, 0.7*sinTemp, 0.7*sinTemp);
 }
 
 void Game::Render()
 {
     shader.Bind();
     
-    shader.SetUniform("transform", transform.GetTransformation());
+    shader.SetUniform("transform", transform.GetProjectedTransformation());
     
     mesh.Draw();
     Window::SwapBuffers();

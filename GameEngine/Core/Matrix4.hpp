@@ -28,6 +28,7 @@ public:
     Matrix4 InitTranslation(float x, float y, float z);
     Matrix4 InitRotation(float x, float y, float z);
     Matrix4 InitScale(float x, float y, float z);
+    Matrix4 InitProjection(float fov, float width, float height, float zNear, float zFar);
     
     Matrix4 Multiply(Matrix4 m);
     

@@ -92,6 +92,20 @@ Matrix4 Matrix4::InitScale(float x, float y, float z)
     return *this;
 }
 
+Matrix4 Matrix4::InitProjection(float fov, float width, float height, float zNear, float zFar)
+{
+    float ar = width / height;
+    float tanHalfFOV = tanf((fov/2) * (M_PI/180));
+    float zRange = zNear - zFar;
+    
+    matrix[0][0] = 1/(tanHalfFOV*ar);  matrix[0][1] = 0;             matrix[0][2] = 0;                     matrix[0][3] = 0;
+    matrix[1][0] = 0;                  matrix[1][1] = 1/tanHalfFOV;  matrix[1][2] = 0;                     matrix[1][3] = 0;
+    matrix[2][0] = 0;                  matrix[2][1] = 0;             matrix[2][2] = (-zNear-zFar)/zRange;  matrix[2][3] = 2*zFar*zNear/zRange;
+    matrix[3][0] = 0;                  matrix[3][1] = 0;             matrix[3][2] = 1;                     matrix[3][3] = 0;
+    
+    return *this;
+}
+
 Matrix4 Matrix4::Multiply(Matrix4 m)
 {
     Matrix4 res = Matrix4();

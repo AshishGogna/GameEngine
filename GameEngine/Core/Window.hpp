@@ -23,11 +23,11 @@ using namespace std;
 class Window
 {
 private:
-    static int width;
-    static int height;
     static string title;
 
 public:
+    static int width;
+    static int height;
     static GLFWwindow* window;
 
     static void CreateWindow(int w, int h, const char *t);

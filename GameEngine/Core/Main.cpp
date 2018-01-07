@@ -114,7 +114,7 @@ GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path
 Main::Main()
 {
     Window::CreateWindow(WIDTH, HEIGHT, TITLE);
-    //RenderUtil::InitGraphics();
+    RenderUtil::InitGraphics();
 
     cout << RenderUtil::GetOpenGLVersion() << endl;
 
