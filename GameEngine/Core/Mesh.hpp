@@ -23,6 +23,7 @@ class Mesh
 {
 private:
     GLuint vbo;
+    GLuint ibo; //index buffer object
     int size;
     vector<int> a;
     GLuint programID;
@@ -32,6 +33,6 @@ private:
 public:
     Mesh();
     
-    void AddVertices(vector<Vertex> vertices);
+    void AddVertices(vector<Vertex> vertices, vector<int> indices);
     void Draw();
 };

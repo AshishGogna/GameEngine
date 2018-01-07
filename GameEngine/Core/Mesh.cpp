@@ -15,32 +15,41 @@ Mesh::Mesh()
     if (!Window::isInitialized()) return;
     
     glGenBuffers(1, &vbo);
+    glGenBuffers(1, &ibo);
+
     size = 0;
 }
 
-void Mesh::AddVertices(vector<Vertex> vertices)
+void Mesh::AddVertices(vector<Vertex> vertices, vector<int> indices)
 {
-    size = (int)vertices.size();
+    size = (int)indices.size();
     int vertsSize = (int)vertices.size() * Vertex::SIZE;
 
-    //Convert buffer (GLfloat array) from vector
+    //Convert buffer from vertices vector
     GLfloat verts[vertsSize];
     int i=0;
-    while (i<vertsSize)
+    for (int j=0; j<(int)vertices.size(); j++)
     {
-        for (int j=0; j<size; j++)
-        {
-            verts[i] = vertices[j].position.x;
-            i++;
-            verts[i] = vertices[j].position.y;
-            i++;
-            verts[i] = vertices[j].position.z;
-            i++;
-        }
+        verts[i] = vertices[j].position.x;
+        i++;
+        verts[i] = vertices[j].position.y;
+        i++;
+        verts[i] = vertices[j].position.z;
+        i++;
     }
 
+    //Convert buffer from indices vector
+    GLuint inds[size];
+    for (int j=0; j<size; j++)
+    {
+      inds[j] = indices[j];
+    }
+    
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(verts), verts, GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(inds), inds, GL_STATIC_DRAW);
 }
 
 void Mesh::Draw()
@@ -56,6 +65,10 @@ void Mesh::Draw()
                           (void*)0            // array buffer offset
                           );
 
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    //glDrawArrays(GL_TRIANGLES, 0, 3);
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+    glDrawElements(GL_TRIANGLES, size, GL_UNSIGNED_INT, 0);
+    
     glDisableVertexAttribArray(0);
 }
