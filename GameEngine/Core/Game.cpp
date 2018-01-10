@@ -19,35 +19,23 @@ Game::Game()
 
     //Mesh
     mesh = ResourceLoader::LoadMesh("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Models/Cube.obj");
-    
-    /*
-    mesh = Mesh();
-    vector<Vertex> vertices{};
-    vertices.push_back(Vertex(Vector3(-1, -1, 0)));
-    vertices.push_back(Vertex(Vector3(0, 1, 0)));
-    vertices.push_back(Vertex(Vector3(1, -1, 0)));
-    vertices.push_back(Vertex(Vector3(0, -1, 1)));
-    
-    vector<int> indices = {0,1,3,3,1,2,2,1,0,0,2,3};
-    
-    mesh.AddVertices(vertices, indices);
-    */
+    shader = Shader();
     
     //Shaders
-    shader = Shader();
     shader.AddVertexShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicVertex.vs"));
     shader.AddFragmentShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicFragment.fs"));
     shader.CompileShader();
     
     transform = Transform();
     transform.SetProjection(70, Window::width, Window::height, 0.1, 1000);
+    transform.SetTranslation(0, 0, 5);
     
     shader.AddUniform("transform");
 }
 
 void Game::Input()
 {
-    
+    transform.camera.Input();
 }
 
 float temp = 0;
@@ -57,8 +45,8 @@ void Game::Update()
     
     float sinTemp = sinf(temp);
     
-    transform.SetTranslation(sinTemp, 0, 5);
-    transform.SetRotation(0, sinTemp * 360, 0);
+    //transform.SetTranslation(sinTemp, 0, 5);
+    //transform.SetRotation(0, sinTemp * 360, 0);
     //transform.SetScale(0.7*sinTemp, 0.7*sinTemp, 0.7*sinTemp);
 }
 

@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include "Vector3.hpp"
 
 using namespace std;
 
@@ -29,6 +30,7 @@ public:
     Matrix4 InitRotation(float x, float y, float z);
     Matrix4 InitScale(float x, float y, float z);
     Matrix4 InitProjection(float fov, float width, float height, float zNear, float zFar);
+    Matrix4 InitCamera(Vector3 fwd, Vector3 up);
     
     Matrix4 Multiply(Matrix4 m);
     

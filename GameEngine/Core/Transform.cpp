@@ -10,6 +10,7 @@
 
 Transform::Transform()
 {
+    camera = Camera();
     translation = Vector3(0, 0, 0);
     rotation = Vector3(0, 0, 0);
     scale = Vector3(1, 1, 1);
@@ -27,9 +28,11 @@ Matrix4 Transform::GetTransformation()
 Matrix4 Transform::GetProjectedTransformation()
 {
     Matrix4 transformationMatrix = GetTransformation();
-    Matrix4 projectionMatrix = Matrix4().InitProjection(Transform::fov, Transform::width, Transform::height, Transform::zNear, Transform::zFar);
+    Matrix4 projectionMatrix =Matrix4().InitProjection(Transform::fov, Transform::width, Transform::height, Transform::zNear, Transform::zFar);
+    Matrix4 cameraRotation = Matrix4().InitCamera(camera.forward, camera.up);
+    Matrix4 cameraTranslation = Matrix4().InitTranslation(-camera.position.x, -camera.position.y, -camera.position.z);
     
-    return projectionMatrix.Multiply(transformationMatrix);
+    return projectionMatrix.Multiply(cameraRotation.Multiply(cameraTranslation.Multiply(transformationMatrix)));
 }
 
 void Transform::SetTranslation(float x, float y, float z)

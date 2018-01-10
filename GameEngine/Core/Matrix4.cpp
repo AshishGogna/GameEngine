@@ -106,6 +106,25 @@ Matrix4 Matrix4::InitProjection(float fov, float width, float height, float zNea
     return *this;
 }
 
+Matrix4 Matrix4::InitCamera(Vector3 fwd, Vector3 up)
+{
+    Vector3 f = fwd;
+    f.Normalize();
+    
+    Vector3 r = up;
+    r.Normalize();
+    r = r.Cross(f);
+    
+    Vector3 u = f.Cross(r);
+    
+    matrix[0][0] = r.x;    matrix[0][1] = r.y;     matrix[0][2] = r.z;   matrix[0][3] = 0;
+    matrix[1][0] = u.x;    matrix[1][1] = u.y;     matrix[1][2] = u.z;   matrix[1][3] = 0;
+    matrix[2][0] = f.x;    matrix[2][1] = f.y;     matrix[2][2] = f.z;   matrix[2][3] = 0;
+    matrix[3][0] = 0;      matrix[3][1] = 0;       matrix[3][2] = 0;   matrix[3][3] = 1;
+    
+    return *this;
+}
+
 Matrix4 Matrix4::Multiply(Matrix4 m)
 {
     Matrix4 res = Matrix4();

@@ -66,11 +66,19 @@ Mesh ResourceLoader::LoadMesh(std::string filePath)
             }
             else if (tokens[0] == "f")
             {
-                indices.push_back(stoi(tokens[1]) - 1);
-                indices.push_back(stoi(tokens[2]) - 1);
-                indices.push_back(stoi(tokens[3]) - 1);
+                indices.push_back(stoi(Split(tokens[1], '/')[0]) - 1);
+                indices.push_back(stoi(Split(tokens[2], '/')[0]) - 1);
+                indices.push_back(stoi(Split(tokens[3], '/')[0]) - 1);
+                
+                if (tokens.size() > 4)
+                {
+                    indices.push_back(stoi(Split(tokens[1], '/')[0]) - 1);
+                    indices.push_back(stoi(Split(tokens[3], '/')[0]) - 1);
+                    indices.push_back(stoi(Split(tokens[4], '/')[0]) - 1);
+                }
             }
         }
+        
         shaderStream.close();
     }
     else

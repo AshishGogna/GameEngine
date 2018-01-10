@@ -22,6 +22,7 @@
 		235AB9131FF4CF0700160ECC /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235AB9111FF4CF0700160ECC /* Input.cpp */; };
 		239205221FFA0E750016F165 /* ResourceLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 239205201FFA0E750016F165 /* ResourceLoader.cpp */; };
 		239205251FFA113A0016F165 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 239205231FFA113A0016F165 /* Shader.cpp */; };
+		239584EC2005FF1500682695 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 239584EA2005FF1500682695 /* Camera.cpp */; };
 		23C4E8131FF365FF0069E63E /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C4E8121FF365FF0069E63E /* CoreVideo.framework */; };
 		23C4E8151FF366040069E63E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C4E8141FF366040069E63E /* CoreFoundation.framework */; };
 		23C4E8171FF3660A0069E63E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C4E8161FF3660A0069E63E /* IOKit.framework */; };
@@ -74,6 +75,8 @@
 		239205211FFA0E750016F165 /* ResourceLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ResourceLoader.hpp; path = Core/ResourceLoader.hpp; sourceTree = "<group>"; };
 		239205231FFA113A0016F165 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Shader.cpp; path = Core/Shader.cpp; sourceTree = "<group>"; };
 		239205241FFA113A0016F165 /* Shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Shader.hpp; path = Core/Shader.hpp; sourceTree = "<group>"; };
+		239584EA2005FF1500682695 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Camera.cpp; path = Core/Camera.cpp; sourceTree = "<group>"; };
+		239584EB2005FF1500682695 /* Camera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Camera.hpp; path = Core/Camera.hpp; sourceTree = "<group>"; };
 		23C4E8121FF365FF0069E63E /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		23C4E8141FF366040069E63E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		23C4E8161FF3660A0069E63E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -140,6 +143,8 @@
 				239205241FFA113A0016F165 /* Shader.hpp */,
 				2330739A1FFF392300D38B12 /* Transform.cpp */,
 				2330739B1FFF392300D38B12 /* Transform.hpp */,
+				239584EA2005FF1500682695 /* Camera.cpp */,
+				239584EB2005FF1500682695 /* Camera.hpp */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				2328034B1FF3785700365AA6 /* Game.cpp in Sources */,
 				239205251FFA113A0016F165 /* Shader.cpp in Sources */,
 				232803511FF37F2500365AA6 /* Vector3.cpp in Sources */,
+				239584EC2005FF1500682695 /* Camera.cpp in Sources */,
 				2328034E1FF379B700365AA6 /* Vector2.cpp in Sources */,
 				23EB17791FF6113600D3DC5E /* Mesh.cpp in Sources */,
 				23EB17731FF6026E00D3DC5E /* RenderUtil.cpp in Sources */,
