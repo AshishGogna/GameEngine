@@ -23,4 +23,5 @@ public:
     static std::string GetOpenGLVersion();
     static void SetTextures(bool enabled);
     static void SetClearColor(Vector3 col);
+    static void UnbindTextures();
 };

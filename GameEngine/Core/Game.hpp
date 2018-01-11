@@ -11,9 +11,9 @@
 
 #include <stdio.h>
 #include "Mesh.hpp"
-#include "Shader.hpp"
+#include "BasicShader.hpp"
 #include "Transform.hpp"
-#include "Texture.hpp"
+#include "Material.hpp"
 
 #endif /* Game_hpp */
 
@@ -21,9 +21,9 @@ class Game
 {
 private:
     Mesh mesh;
-    Shader shader;
+    Shader *shader;
     Transform transform;
-    Texture texture;
+    Material material;
     
 public:
     Game();
@@ -31,4 +31,5 @@ public:
     void Input();
     void Update();
     void Render();
+    void CleanUp();
 };

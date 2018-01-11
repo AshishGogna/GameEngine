@@ -54,3 +54,8 @@ void RenderUtil::SetClearColor(Vector3 col)
 {
     glClearColor(col.x, col.y, col.z, 1);
 }
+
+void RenderUtil::UnbindTextures()
+{
+    glBindTexture(GL_TEXTURE_2D, 0);
+}

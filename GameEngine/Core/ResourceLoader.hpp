@@ -16,8 +16,6 @@
 #include <vector>
 #include "Texture.hpp"
 
-#endif /* ResourceLoader_hpp */
-
 class ResourceLoader
 {
 public:
@@ -26,3 +24,5 @@ public:
     static Texture LoadTexture(std::string filePath);
     static vector<string> Split(std::string txt, char ch);
 };
+
+#endif /* ResourceLoader_hpp */

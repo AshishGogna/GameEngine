@@ -145,3 +145,7 @@ void Shader::SetUniform(std::string uniform, Matrix4 value)
 
     glUniformMatrix4fv(uniforms[uniform], 1, GL_TRUE, buffer);
 }
+
+void Shader::UpdateUniform(Matrix4 worldMatrix, Matrix4 projectedMatrix, Material material)
+{
+}

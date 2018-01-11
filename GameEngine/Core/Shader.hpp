@@ -15,8 +15,7 @@
 #include <map>
 #include "Matrix4.hpp"
 #include "Vector3.hpp"
-
-#endif /* Shader_hpp */
+#include "Material.hpp"
 
 class Shader
 {
@@ -39,4 +38,7 @@ public:
     void SetUniformf(std::string uniform, float value);
     void SetUniform(std::string uniform, Vector3 value);
     void SetUniform(std::string uniform, Matrix4 value);
+    virtual void UpdateUniform(Matrix4 worldMatrix, Matrix4 projectedMatrix, Material material);
 };
+
+#endif /* Shader_hpp */

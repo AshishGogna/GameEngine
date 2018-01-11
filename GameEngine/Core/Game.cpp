@@ -14,6 +14,7 @@
 #include <math.h>
 #include "Vector2.hpp"
 #include "RenderUtil.hpp"
+#include "Texture.hpp"
 
 Game::Game()
 {
@@ -21,8 +22,8 @@ Game::Game()
 
     //Mesh
     mesh = Mesh(); //ResourceLoader::LoadMesh("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Models/Cube.obj");
-    shader = Shader();
-    texture = ResourceLoader::LoadTexture("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Textures/Checker.bmp");
+    shader = new BasicShader();
+    material = Material(ResourceLoader::LoadTexture("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Textures/Checker.bmp"), Vector3(0, 1, 1));
     
     vector<Vertex> vertices{};
     vertices.push_back(Vertex(Vector3(-1, -1, 0), Vector2(0, 0)));
@@ -32,16 +33,9 @@ Game::Game()
     vector<int> indices = {3,1,0,2,1,3,0,1,2,0,2,3};
     mesh.AddVertices(vertices, indices);
     
-    //Shaders
-    shader.AddVertexShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicVertex.vs"));
-    shader.AddFragmentShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicFragment.fs"));
-    shader.CompileShader();
-    
     transform = Transform();
     transform.SetProjection(70, Window::width, Window::height, 0.1, 1000);
     transform.SetTranslation(0, 0, 5);
-    
-    shader.AddUniform("transform");
 }
 
 void Game::Input()
@@ -64,9 +58,15 @@ void Game::Update()
 void Game::Render()
 {
     RenderUtil::SetClearColor(transform.camera.position.Divide(2048).Abs());
-    shader.Bind();
-    shader.SetUniform("transform", transform.GetProjectedTransformation());
-    texture.Bind();
+
+    shader->Bind();
+    shader->UpdateUniform(transform.GetTransformation(), transform.GetProjectedTransformation(), material);
     mesh.Draw();
+    
     Window::SwapBuffers();
+}
+
+void Game::CleanUp()
+{
+    delete shader;
 }
