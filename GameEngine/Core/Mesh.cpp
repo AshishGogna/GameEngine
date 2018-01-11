@@ -22,6 +22,14 @@ Mesh::Mesh()
 
 void Mesh::AddVertices(vector<Vertex> vertices, vector<int> indices)
 {
+    AddVertices(vertices, indices, false);
+}
+
+void Mesh::AddVertices(vector<Vertex> vertices, vector<int> indices, bool calculateNormals)
+{
+    if (calculateNormals)
+        CalculateNormals(vertices, indices);
+
     size = (int)indices.size();
     int vertsSize = (int)vertices.size() * Vertex::SIZE;
 
@@ -39,6 +47,12 @@ void Mesh::AddVertices(vector<Vertex> vertices, vector<int> indices)
         verts[i] = vertices[j].texCoord.x;
         i++;
         verts[i] = vertices[j].texCoord.y;
+        i++;
+        verts[i] = vertices[j].normal.x;
+        i++;
+        verts[i] = vertices[j].normal.y;
+        i++;
+        verts[i] = vertices[j].normal.z;
         i++;
     }
 
@@ -60,30 +74,41 @@ void Mesh::Draw()
 {
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
+    glEnableVertexAttribArray(2);
     
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glVertexAttribPointer(
-                          0,
-                          3,
-                          GL_FLOAT,
-                          GL_FALSE,
-                          Vertex::SIZE * 4,
-                          (void*)0
-                          );
-    glVertexAttribPointer(
-                          1,
-                          2,
-                          GL_FLOAT,
-                          GL_FALSE,
-                          Vertex::SIZE * 4,
-                          (void*)12
-                          );
-
-    //glDrawArrays(GL_TRIANGLES, 0, 3);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, Vertex::SIZE * 4, (void*)0);
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, Vertex::SIZE * 4, (void*)12);
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, Vertex::SIZE * 4, (void*)20);
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
     glDrawElements(GL_TRIANGLES, size, GL_UNSIGNED_INT, 0);
     
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);
+    glDisableVertexAttribArray(2);
+}
+
+void Mesh::CalculateNormals(vector<Vertex> &vertices, vector<int> &indices)
+{
+    for (int i=0; i<indices.size(); i+=3)
+    {
+        int i0 = indices[i];
+        int i1 = indices[i + 1];
+        int i2 = indices[i + 2];
+        
+        Vector3 v1 = vertices[i1].position.Subtract(vertices[i0].position);
+        Vector3 v2 = vertices[i2].position.Subtract(vertices[i0].position);
+        
+        Vector3 normal = v1.Cross(v2).Normalized();
+        
+        vertices[i0].normal = vertices[i0].normal.Add(normal);
+        vertices[i1].normal = vertices[i1].normal.Add(normal);
+        vertices[i2].normal = vertices[i2].normal.Add(normal);
+    }
+    
+    for (int i=0; i<vertices.size(); i++)
+    {
+        vertices[i].normal = vertices[i].normal.Normalized();
+    }
 }

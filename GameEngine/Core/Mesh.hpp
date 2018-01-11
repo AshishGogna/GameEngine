@@ -27,11 +27,13 @@ private:
     GLuint programID;
     
     GLfloat* CreateBuffer(vector<Vertex> vertices);
+    void CalculateNormals(vector<Vertex> &vertices, vector<int> &indices);
     
 public:
     Mesh();
     
     void AddVertices(vector<Vertex> vertices, vector<int> indices);
+    void AddVertices(vector<Vertex> vertices, vector<int> indices, bool calculateNormals);
     void Draw();
 };
 

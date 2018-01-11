@@ -13,25 +13,44 @@
 
 PhongShader::PhongShader()
 {
+    directionalLight = DirectionalLight(BaseLight(Vector3(1, 1, 1), 0), Vector3(0, 0, 0));
+    
     AddVertexShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/PhongVertex.vs"));
     AddFragmentShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/PhongFragment.fs"));
     CompileShader();
     
     AddUniform("transform");
+    AddUniform("transformProjected");
     AddUniform("baseColor");
     AddUniform("ambientLight");
+    
+    AddUniform("directionalLight.baseLight.color");
+    AddUniform("directionalLight.baseLight.intensity");
+    AddUniform("directionalLight.direction");
 }
 
 void PhongShader::UpdateUniform(Matrix4 worldMatrix, Matrix4 projectedMatrix, Material material)
 {
-    cout << "? = " << material.texture.GetId() << endl;
-    
     if (material.texture.GetId() != 0)
         material.texture.Bind();
     else
         RenderUtil::UnbindTextures();
     
-    SetUniform("transform", projectedMatrix);
+    SetUniform("transform", worldMatrix);
+    SetUniform("transformProjected", projectedMatrix);
     SetUniform("baseColor", material.color);
-    SetUniform("ambientLight", AmbientLight);
+    SetUniform("ambientLight", ambientLight);
+    SetUniformDirectionalLight("directionalLight", directionalLight);
+}
+
+void PhongShader::SetUniformBaseLight(std::string uniform, BaseLight bl)
+{
+    SetUniform(uniform + ".color", bl.color);
+    SetUniformf(uniform + ".intensity", bl.intensity);
+}
+
+void PhongShader::SetUniformDirectionalLight(std::string uniform, DirectionalLight dl)
+{
+    SetUniform(uniform + ".direction", dl.direction);
+    SetUniformBaseLight(uniform + ".baseLight", dl.baseLight);
 }

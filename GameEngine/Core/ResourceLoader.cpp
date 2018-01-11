@@ -90,7 +90,7 @@ Mesh ResourceLoader::LoadMesh(std::string filePath)
     }
 
     Mesh res = Mesh();
-    res.AddVertices(vertices, indices);
+    res.AddVertices(vertices, indices, true);
     
     return res;
 }

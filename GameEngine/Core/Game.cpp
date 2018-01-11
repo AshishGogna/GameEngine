@@ -32,12 +32,13 @@ Game::Game()
     vertices.push_back(Vertex(Vector3(1, -1, 0), Vector2(1, 0)));
     vertices.push_back(Vertex(Vector3(0, -1, 1), Vector2(0, 0.5)));
     vector<int> indices = {3,1,0,2,1,3,0,1,2,0,2,3};
-    mesh.AddVertices(vertices, indices);
+    mesh.AddVertices(vertices, indices, true);
     
     transform.SetProjection(70, Window::width, Window::height, 0.1, 1000);
     transform.SetTranslation(0, 0, 5);
     
-    static_cast<PhongShader*>(shader)->AmbientLight = Vector3(0.1, 0.1, 0.5);
+    static_cast<PhongShader*>(shader)->ambientLight = Vector3(0.1, 0.1, 0.5);
+    static_cast<PhongShader*>(shader)->directionalLight = DirectionalLight(BaseLight(Vector3(1, 1, 1), 0.7), Vector3(1, 1, 1));
 }
 
 void Game::Input()
