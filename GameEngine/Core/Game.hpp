@@ -13,6 +13,7 @@
 #include "Mesh.hpp"
 #include "Shader.hpp"
 #include "Transform.hpp"
+#include "Texture.hpp"
 
 #endif /* Game_hpp */
 
@@ -22,6 +23,7 @@ private:
     Mesh mesh;
     Shader shader;
     Transform transform;
+    Texture texture;
     
 public:
     Game();

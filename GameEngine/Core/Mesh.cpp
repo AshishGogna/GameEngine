@@ -36,6 +36,10 @@ void Mesh::AddVertices(vector<Vertex> vertices, vector<int> indices)
         i++;
         verts[i] = vertices[j].position.z;
         i++;
+        verts[i] = vertices[j].texCoord.x;
+        i++;
+        verts[i] = vertices[j].texCoord.y;
+        i++;
     }
 
     //Convert buffer from indices vector
@@ -55,14 +59,24 @@ void Mesh::AddVertices(vector<Vertex> vertices, vector<int> indices)
 void Mesh::Draw()
 {
     glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
+    
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glVertexAttribPointer(
-                          0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-                          3,                  // size
-                          GL_FLOAT,           // type
-                          GL_FALSE,           // normalized?
-                          0,                  // stride
-                          (void*)0            // array buffer offset
+                          0,
+                          3,
+                          GL_FLOAT,
+                          GL_FALSE,
+                          Vertex::SIZE * 4,
+                          (void*)0
+                          );
+    glVertexAttribPointer(
+                          1,
+                          2,
+                          GL_FLOAT,
+                          GL_FALSE,
+                          Vertex::SIZE * 4,
+                          (void*)12
                           );
 
     //glDrawArrays(GL_TRIANGLES, 0, 3);
@@ -71,4 +85,5 @@ void Mesh::Draw()
     glDrawElements(GL_TRIANGLES, size, GL_UNSIGNED_INT, 0);
     
     glDisableVertexAttribArray(0);
+    glDisableVertexAttribArray(1);
 }

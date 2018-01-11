@@ -11,14 +11,19 @@
 
 #include <stdio.h>
 #include "Vector3.hpp"
-
+#include "Vector2.hpp"
 class Vertex
 {
+private:
+    void Init(Vector3 position, Vector2 texCoord);
+
 public:
-    static const int SIZE = 3;
+    static const int SIZE = 5;
     Vector3 position;
+    Vector2 texCoord;
     
     Vertex(Vector3 position);
+    Vertex(Vector3 position, Vector2 texCoord);
 };
 
 #endif /* Vertex_hpp */

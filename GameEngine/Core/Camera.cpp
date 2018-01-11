@@ -69,7 +69,6 @@ void Camera::Input()
 void Camera::Move(Vector3 direction, float amount)
 {
     position = position.Add(direction.Multiply(amount));
-    //cout << "aa : " << position.ToString() << endl;
 }
 
 void Camera::RotateX(float angle)

@@ -12,8 +12,6 @@
 #include <stdio.h>
 #include <iostream>
 
-#endif /* Vector2_hpp */
-
 using namespace std;
 
 class Vector2
@@ -22,6 +20,7 @@ class Vector2
 public:
     float x, y;
 
+    Vector2();
     Vector2(float x, float y);
     
     float Length();
@@ -43,3 +42,5 @@ public:
     
     string ToString();
 };
+
+#endif /* Vector2_hpp */

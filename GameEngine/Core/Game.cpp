@@ -12,14 +12,24 @@
 #include "Util.hpp"
 #include "Time.hpp"
 #include <math.h>
+#include "Vector2.hpp"
 
 Game::Game()
 {
     if (!Window::isInitialized()) return;
 
     //Mesh
-    mesh = ResourceLoader::LoadMesh("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Models/Cube.obj");
+    mesh = Mesh(); //ResourceLoader::LoadMesh("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Models/Cube.obj");
     shader = Shader();
+    texture = ResourceLoader::LoadTexture("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Textures/Checker.bmp");
+    
+    vector<Vertex> vertices{};
+    vertices.push_back(Vertex(Vector3(-1, -1, 0), Vector2(0, 0)));
+    vertices.push_back(Vertex(Vector3(0, 1, 0), Vector2(0.5, 0)));
+    vertices.push_back(Vertex(Vector3(1, -1, 0), Vector2(1, 0)));
+    vertices.push_back(Vertex(Vector3(0, -1, 1), Vector2(0, 0.5)));
+    vector<int> indices = {3,1,0,2,1,3,0,1,2,0,2,3};
+    mesh.AddVertices(vertices, indices);
     
     //Shaders
     shader.AddVertexShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicVertex.vs"));
@@ -46,16 +56,15 @@ void Game::Update()
     float sinTemp = sinf(temp);
     
     //transform.SetTranslation(sinTemp, 0, 5);
-    //transform.SetRotation(0, sinTemp * 360, 0);
+    transform.SetRotation(0, sinTemp * 360, 0);
     //transform.SetScale(0.7*sinTemp, 0.7*sinTemp, 0.7*sinTemp);
 }
 
 void Game::Render()
 {
     shader.Bind();
-    
     shader.SetUniform("transform", transform.GetProjectedTransformation());
-    
+    texture.Bind();
     mesh.Draw();
     Window::SwapBuffers();
 }

@@ -30,6 +30,7 @@ void RenderUtil::InitGraphics()
     glEnable(GL_DEPTH_TEST);
     //TODO: Depth clamp
     
+    glEnable(GL_TEXTURE_2D);
     glEnable(GL_FRAMEBUFFER_SRGB);
 }
 
@@ -39,4 +40,12 @@ std::string RenderUtil::GetOpenGLVersion()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 
     return (char*)glGetString(GL_VERSION);
+}
+
+void RenderUtil::SetTextures(bool enabled)
+{
+    if (enabled)
+        glEnable(GL_TEXTURE_2D);
+    else
+        glDisable(GL_TEXTURE_2D);
 }

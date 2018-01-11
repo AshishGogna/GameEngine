@@ -20,4 +20,5 @@ public:
     static void ClearScreen();
     static void InitGraphics();
     static std::string GetOpenGLVersion();
+    static void SetTextures(bool enabled);
 };

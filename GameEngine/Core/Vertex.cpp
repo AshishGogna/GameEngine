@@ -10,5 +10,16 @@
 
 Vertex::Vertex(Vector3 position)
 {
+    Init(position, Vector2(0, 0));
+}
+
+Vertex::Vertex(Vector3 position, Vector2 texCoord)
+{
+    Init(position, texCoord);
+}
+
+void Vertex::Init(Vector3 position, Vector2 texCoord)
+{
     this->position = position;
+    this->texCoord = texCoord;
 }
