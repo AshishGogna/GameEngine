@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include "Vector3.hpp"
 
 #endif /* RenderUtil_hpp */
 
@@ -21,4 +22,5 @@ public:
     static void InitGraphics();
     static std::string GetOpenGLVersion();
     static void SetTextures(bool enabled);
+    static void SetClearColor(Vector3 col);
 };

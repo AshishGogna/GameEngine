@@ -108,11 +108,9 @@ Matrix4 Matrix4::InitProjection(float fov, float width, float height, float zNea
 
 Matrix4 Matrix4::InitCamera(Vector3 fwd, Vector3 up)
 {
-    Vector3 f = fwd;
-    f.Normalize();
+    Vector3 f = fwd.Normalized();
     
-    Vector3 r = up;
-    r.Normalize();
+    Vector3 r = up.Normalized();
     r = r.Cross(f);
     
     Vector3 u = f.Cross(r);

@@ -25,11 +25,8 @@ void Camera::Init(Vector3 pos, Vector3 fwd, Vector3 u)
 {
     //pos.x = 3;
     position = pos;
-    forward = fwd;
-    up = u;
-    
-    forward.Normalize();
-    up.Normalize();
+    forward = fwd.Normalized();
+    up = u.Normalized();
 }
 
 void Camera::Input()
@@ -73,40 +70,28 @@ void Camera::Move(Vector3 direction, float amount)
 
 void Camera::RotateX(float angle)
 {
-    Vector3 horAxis = yAxis.Cross(forward);
-    horAxis.Normalize();
+    Vector3 horAxis = yAxis.Cross(forward).Normalized();
     
-    forward.Rotate(angle, horAxis);
-    forward.Normalize();
+    forward = forward.Rotatee(angle, horAxis).Normalized();
     
-    up = forward.Cross(horAxis);
-    up.Normalize();
+    up = forward.Cross(horAxis).Normalized();
 }
 
 void Camera::RotateY(float angle)
 {
-    Vector3 horAxis = yAxis.Cross(forward);
-    horAxis.Normalize();
+    Vector3 horAxis = yAxis.Cross(forward).Normalized();
 
-    forward.Rotate(angle, yAxis);
-    forward.Normalize();
+    forward = forward.Rotatee(angle, yAxis).Normalized();
     
-    up = forward.Cross(horAxis);
-    up.Normalize();
+    up = forward.Cross(horAxis).Normalized();
 }
 
 Vector3 Camera::GetLeft()
 {
-    Vector3 left = forward.Cross(up);
-    left.Normalize();
-    
-    return left;
+    return forward.Cross(up).Normalized();
 }
 
 Vector3 Camera::GetRight()
 {
-    Vector3 right = up.Cross(forward);
-    right.Normalize();
-    
-    return right;
+    return up.Cross(forward).Normalized();
 }

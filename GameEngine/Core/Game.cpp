@@ -13,6 +13,7 @@
 #include "Time.hpp"
 #include <math.h>
 #include "Vector2.hpp"
+#include "RenderUtil.hpp"
 
 Game::Game()
 {
@@ -62,6 +63,7 @@ void Game::Update()
 
 void Game::Render()
 {
+    RenderUtil::SetClearColor(transform.camera.position.Divide(2048).Abs());
     shader.Bind();
     shader.SetUniform("transform", transform.GetProjectedTransformation());
     texture.Bind();

@@ -41,17 +41,13 @@ Vector3 Vector3::Cross(Vector3 v)
     return Vector3(_x, _y, _z);
 }
 
-Vector3 Vector3::Normalize()
+Vector3 Vector3::Normalized()
 {
     float length = Length();
-    x /= length;
-    y /= length;
-    z /= length;
-    
-    return *this;
+    return Vector3(x/length, y/length, z/length);
 }
 
-Vector3 Vector3::Rotate(float angle, Vector3 axis)
+Vector3 Vector3::Rotatee(float angle, Vector3 axis)
 {
     float sinHalfAngle = sinf((angle/2) * (M_PI/180));
     float cosHalfAngle = cosf((angle/2) * (M_PI/180));
@@ -65,11 +61,7 @@ Vector3 Vector3::Rotate(float angle, Vector3 axis)
     Quaternion conjugate = rot.Conjugate();
     Quaternion w = rot.Multiply(*this).Multiply(conjugate);
 
-    x = w.x;
-    y = w.y;
-    z = w.z;
-    
-    return *this;
+    return Vector3(w.x, w.y, w.z);
 }
 
 //Addition
@@ -115,4 +107,10 @@ Vector3 Vector3::Divide(float f)
 string Vector3::ToString()
 {
     return "(" + to_string(x) + ", " + to_string(y) + ", " + to_string(z) + ")";
+}
+
+//Misc
+ Vector3 Vector3::Abs()
+{
+    return Vector3(fabsf(x), fabsf(y), fabsf(z));
 }

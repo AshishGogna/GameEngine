@@ -49,3 +49,8 @@ void RenderUtil::SetTextures(bool enabled)
     else
         glDisable(GL_TEXTURE_2D);
 }
+
+void RenderUtil::SetClearColor(Vector3 col)
+{
+    glClearColor(col.x, col.y, col.z, 1);
+}

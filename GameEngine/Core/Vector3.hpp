@@ -26,8 +26,8 @@ public:
     float Length();
     float Dot(Vector3 v);
     Vector3 Cross(Vector3 v);
-    Vector3 Normalize();
-    Vector3 Rotate(float angle, Vector3 axis);
+    Vector3 Normalized();
+    Vector3 Rotatee(float angle, Vector3 axis);
     
     Vector3 Add(Vector3 v);
     Vector3 Add(float v);
@@ -40,6 +40,8 @@ public:
     
     Vector3 Divide(Vector3 v);
     Vector3 Divide(float f);
+    
+    Vector3 Abs();
     
     string ToString();
 };
