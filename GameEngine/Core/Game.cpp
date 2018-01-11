@@ -22,8 +22,9 @@ Game::Game()
 
     //Mesh
     mesh = Mesh(); //ResourceLoader::LoadMesh("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Models/Cube.obj");
-    shader = new BasicShader();
-    material = Material(ResourceLoader::LoadTexture("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Textures/Checker.bmp"), Vector3(0, 1, 1));
+    shader = new PhongShader();
+    material = Material(ResourceLoader::LoadTexture("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Textures/Checker.bmp"), Vector3(1, 1, 1));
+    transform = Transform();
     
     vector<Vertex> vertices{};
     vertices.push_back(Vertex(Vector3(-1, -1, 0), Vector2(0, 0)));
@@ -33,9 +34,10 @@ Game::Game()
     vector<int> indices = {3,1,0,2,1,3,0,1,2,0,2,3};
     mesh.AddVertices(vertices, indices);
     
-    transform = Transform();
     transform.SetProjection(70, Window::width, Window::height, 0.1, 1000);
     transform.SetTranslation(0, 0, 5);
+    
+    static_cast<PhongShader*>(shader)->AmbientLight = Vector3(0.1, 0.1, 0.5);
 }
 
 void Game::Input()

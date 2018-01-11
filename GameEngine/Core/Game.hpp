@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "Mesh.hpp"
 #include "BasicShader.hpp"
+#include "PhongShader.hpp"
 #include "Transform.hpp"
 #include "Material.hpp"
 
