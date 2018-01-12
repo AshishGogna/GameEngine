@@ -18,3 +18,11 @@ Material::Material(Texture tex, Vector3 col)
     texture = tex;
     color = col;
 }
+
+Material::Material(Texture tex, Vector3 col, float specIntensity, float specExponent)
+{
+    texture = tex;
+    color = col;
+    specularIntensity = specIntensity;
+    specularExponent = specExponent;
+}

@@ -19,10 +19,13 @@ private:
     
 public:
     Texture texture;
-    Vector3 color;
+    Vector3 color = Vector3(1, 1, 1);
+    float specularIntensity = 2;
+    float specularExponent = 32;
     
     Material();
     Material(Texture tex, Vector3 col);
+    Material(Texture tex, Vector3 col, float specIntensity, float specExponent);
 };
 
 #endif /* Material_hpp */

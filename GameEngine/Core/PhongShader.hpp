@@ -15,14 +15,18 @@
 #include "Material.hpp"
 #include "BaseLight.hpp"
 #include "DirectionalLight.hpp"
+#include "Transform.hpp"
 
 class PhongShader : public Shader
 {
+private:
+    Transform trns;
 public:
     Vector3 ambientLight;
     DirectionalLight directionalLight;
     
     PhongShader();
+    PhongShader(Transform t);
     void UpdateUniform(Matrix4 worldMatrix, Matrix4 projectedMatrix, Material material);
     void SetUniformBaseLight(std::string uniform, BaseLight bl);
     void SetUniformDirectionalLight(std::string uniform, DirectionalLight dl);

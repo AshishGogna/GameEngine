@@ -22,9 +22,9 @@ Game::Game()
 
     //Mesh
     mesh = Mesh(); //ResourceLoader::LoadMesh("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Models/Cube.obj");
-    shader = new PhongShader();
     material = Material(ResourceLoader::LoadTexture("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Textures/Checker.bmp"), Vector3(1, 1, 1));
     transform = Transform();
+    shader = new PhongShader(transform);
     
     vector<Vertex> vertices{};
     vertices.push_back(Vertex(Vector3(-1, -1, 0), Vector2(0, 0)));

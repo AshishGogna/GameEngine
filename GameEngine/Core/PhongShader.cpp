@@ -11,8 +11,10 @@
 #include "ResourceLoader.hpp"
 #include "RenderUtil.hpp"
 
-PhongShader::PhongShader()
+PhongShader::PhongShader(Transform t)
 {
+    trns = t;
+    
     directionalLight = DirectionalLight(BaseLight(Vector3(1, 1, 1), 0), Vector3(0, 0, 0));
     
     AddVertexShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/PhongVertex.vs"));
@@ -22,6 +24,10 @@ PhongShader::PhongShader()
     AddUniform("transform");
     AddUniform("transformProjected");
     AddUniform("baseColor");
+    AddUniform("ambientLight");
+    AddUniform("specularIntensity");
+    AddUniform("specularExponent");
+    AddUniform("eyePos");
     AddUniform("ambientLight");
     
     AddUniform("directionalLight.baseLight.color");
@@ -41,6 +47,9 @@ void PhongShader::UpdateUniform(Matrix4 worldMatrix, Matrix4 projectedMatrix, Ma
     SetUniform("baseColor", material.color);
     SetUniform("ambientLight", ambientLight);
     SetUniformDirectionalLight("directionalLight", directionalLight);
+    SetUniformf("specularIntensity", material.specularIntensity);
+    SetUniformf("specularExponent", material.specularExponent);
+    SetUniform("eyePos", trns.camera.position);
 }
 
 void PhongShader::SetUniformBaseLight(std::string uniform, BaseLight bl)
