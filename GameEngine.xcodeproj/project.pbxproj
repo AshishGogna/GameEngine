@@ -33,6 +33,8 @@
 		23C4E8151FF366040069E63E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C4E8141FF366040069E63E /* CoreFoundation.framework */; };
 		23C4E8171FF3660A0069E63E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C4E8161FF3660A0069E63E /* IOKit.framework */; };
 		23C4E8191FF3660E0069E63E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C4E8181FF3660E0069E63E /* Cocoa.framework */; };
+		23D7EA3320086408007AE73B /* Attenuation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23D7EA3120086408007AE73B /* Attenuation.cpp */; };
+		23D7EA3620086476007AE73B /* PointLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23D7EA3420086476007AE73B /* PointLight.cpp */; };
 		23EB17731FF6026E00D3DC5E /* RenderUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23EB17711FF6026E00D3DC5E /* RenderUtil.cpp */; };
 		23EB17761FF60E5D00D3DC5E /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23EB17741FF60E5D00D3DC5E /* Vertex.cpp */; };
 		23EB17791FF6113600D3DC5E /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23EB17771FF6113600D3DC5E /* Mesh.cpp */; };
@@ -99,6 +101,10 @@
 		23C4E8141FF366040069E63E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		23C4E8161FF3660A0069E63E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		23C4E8181FF3660E0069E63E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		23D7EA3120086408007AE73B /* Attenuation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Attenuation.cpp; path = Core/Attenuation.cpp; sourceTree = "<group>"; };
+		23D7EA3220086408007AE73B /* Attenuation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Attenuation.hpp; path = Core/Attenuation.hpp; sourceTree = "<group>"; };
+		23D7EA3420086476007AE73B /* PointLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PointLight.cpp; path = Core/PointLight.cpp; sourceTree = "<group>"; };
+		23D7EA3520086476007AE73B /* PointLight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = PointLight.hpp; path = Core/PointLight.hpp; sourceTree = "<group>"; };
 		23EB17711FF6026E00D3DC5E /* RenderUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RenderUtil.cpp; path = Core/RenderUtil.cpp; sourceTree = "<group>"; };
 		23EB17721FF6026E00D3DC5E /* RenderUtil.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RenderUtil.hpp; path = Core/RenderUtil.hpp; sourceTree = "<group>"; };
 		23EB17741FF60E5D00D3DC5E /* Vertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vertex.cpp; path = Core/Vertex.cpp; sourceTree = "<group>"; };
@@ -175,6 +181,10 @@
 				23A2E3F82007925E00EC4399 /* BaseLight.hpp */,
 				23A2E3FA200792F800EC4399 /* DirectionalLight.cpp */,
 				23A2E3FB200792F800EC4399 /* DirectionalLight.hpp */,
+				23D7EA3120086408007AE73B /* Attenuation.cpp */,
+				23D7EA3220086408007AE73B /* Attenuation.hpp */,
+				23D7EA3420086476007AE73B /* PointLight.cpp */,
+				23D7EA3520086476007AE73B /* PointLight.hpp */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -278,6 +288,7 @@
 			files = (
 				235AB9101FF4B59900160ECC /* Time.cpp in Sources */,
 				23660226200764F100D38941 /* BasicShader.cpp in Sources */,
+				23D7EA3320086408007AE73B /* Attenuation.cpp in Sources */,
 				2328034B1FF3785700365AA6 /* Game.cpp in Sources */,
 				239205251FFA113A0016F165 /* Shader.cpp in Sources */,
 				232803511FF37F2500365AA6 /* Vector3.cpp in Sources */,
@@ -290,6 +301,7 @@
 				23A2E3FC200792F800EC4399 /* DirectionalLight.cpp in Sources */,
 				23A2E3F92007925E00EC4399 /* BaseLight.cpp in Sources */,
 				23A2E3F620077DDE00EC4399 /* PhongShader.cpp in Sources */,
+				23D7EA3620086476007AE73B /* PointLight.cpp in Sources */,
 				232803541FF382F700365AA6 /* Matrix4.cpp in Sources */,
 				239205221FFA0E750016F165 /* ResourceLoader.cpp in Sources */,
 				234971001FF22B41005B0931 /* main.cpp in Sources */,

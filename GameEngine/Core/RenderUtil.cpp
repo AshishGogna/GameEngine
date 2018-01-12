@@ -26,12 +26,12 @@ void RenderUtil::InitGraphics()
     glFrontFace(GL_CW);
     glCullFace(GL_BACK);
     glEnable(GL_CULL_FACE);
-    
     glEnable(GL_DEPTH_TEST);
-    //TODO: Depth clamp
-    
+
+    glEnable(GL_DEPTH_CLAMP);
     glEnable(GL_TEXTURE_2D);
-    glEnable(GL_FRAMEBUFFER_SRGB);
+
+    //glEnable(GL_FRAMEBUFFER_SRGB);
 }
 
 std::string RenderUtil::GetOpenGLVersion()
