@@ -21,6 +21,7 @@ class Util
 public:
     static void Exit();
     static void Print(std::string s);
+    static vector<string> Split(std::string txt, char ch);
 };
 
 #endif /* Util_hpp */

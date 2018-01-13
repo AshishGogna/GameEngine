@@ -8,7 +8,6 @@
 
 #include "PhongShader.hpp"
 
-#include "ResourceLoader.hpp"
 #include "RenderUtil.hpp"
 #include "Util.hpp"
 
@@ -18,8 +17,8 @@ PhongShader::PhongShader(Transform t)
     
     directionalLight = DirectionalLight(BaseLight(Vector3(1, 1, 1), 0), Vector3(0, 0, 0));
     
-    AddVertexShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/PhongVertex.vs"));
-    AddFragmentShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/PhongFragment.fs"));
+    AddVertexShaderFromFile("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/PhongVertex.vs");
+    AddFragmentShaderFromFile("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/PhongFragment.fs");
     CompileShader();
     
     AddUniform("transform");

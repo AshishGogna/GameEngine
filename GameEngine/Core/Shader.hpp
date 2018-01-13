@@ -26,6 +26,9 @@ private:
 public:
     Shader();
     
+    void AddVertexShaderFromFile(std::string filePath);
+    void AddGeometryShaderFromFile(std::string filePath);
+    void AddFragmentShaderFromFile(std::string filePath);
     void AddVertexShader(std::string text);
     void AddGeometryShader(std::string text);
     void AddFragmentShader(std::string text);
@@ -39,6 +42,8 @@ public:
     void SetUniform(std::string uniform, Vector3 value);
     void SetUniform(std::string uniform, Matrix4 value);
     virtual void UpdateUniform(Matrix4 worldMatrix, Matrix4 projectedMatrix, Material material);
+    
+    std::string LoadShader(std::string filePath);
 };
 
 #endif /* Shader_hpp */

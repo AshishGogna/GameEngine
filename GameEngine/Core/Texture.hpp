@@ -11,16 +11,19 @@
 
 #include <stdio.h>
 #include <GL/glew.h>
+#include <iostream>
 
 class Texture
 {
 private:
     GLuint id;
+    void Init(GLuint id);
+    GLuint LoadTexture(std::string filePath);
     
 public:
-    
     Texture();
     Texture(GLuint id);
+    Texture(std::string filePath);
     
     void Bind();
     GLuint GetId();

@@ -7,13 +7,12 @@
 //
 
 #include "BasicShader.hpp"
-#include "ResourceLoader.hpp"
 #include "RenderUtil.hpp"
 
 BasicShader::BasicShader()
 {
-    AddVertexShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicVertex.vs"));
-    AddFragmentShader(ResourceLoader::LoadShader("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicFragment.fs"));
+    AddVertexShaderFromFile("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicVertex.vs");
+    AddFragmentShaderFromFile("/Users/ashishgogna/Desktop/Projects/GameEngine/GameEngine/Resources/Shaders/BasicFragment.fs");
     CompileShader();
 
     AddUniform("transform");

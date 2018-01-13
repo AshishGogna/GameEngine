@@ -26,14 +26,19 @@ private:
     vector<int> a;
     GLuint programID;
     
+    void InitMesh();
     GLfloat* CreateBuffer(vector<Vertex> vertices);
     void CalculateNormals(vector<Vertex> &vertices, vector<int> &indices);
+    void AddVertices(vector<Vertex> vertices, vector<int> indices);
+    void AddVertices(vector<Vertex> vertices, vector<int> indices, bool calculateNormals);
+    void LoadMesh(std::string filePath);
     
 public:
     Mesh();
+    Mesh(std::string filePath);
+    Mesh(vector<Vertex> vertices, vector<int> indices);
+    Mesh(vector<Vertex> vertices, vector<int> indices, bool calculateNormals);
     
-    void AddVertices(vector<Vertex> vertices, vector<int> indices);
-    void AddVertices(vector<Vertex> vertices, vector<int> indices, bool calculateNormals);
     void Draw();
 };
 

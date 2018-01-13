@@ -9,14 +9,39 @@
 #include "Mesh.hpp"
 #include <GL/glew.h>
 #include "Window.hpp"
+#include "Util.hpp"
+#include <fstream>
 
 Mesh::Mesh()
+{
+    InitMesh();
+}
+
+Mesh::Mesh(std::string filePath)
+{
+    InitMesh();
+    LoadMesh(filePath);
+}
+
+Mesh::Mesh(vector<Vertex> vertices, vector<int> indices)
+{
+    InitMesh();
+    AddVertices(vertices, indices);
+}
+
+Mesh::Mesh(vector<Vertex> vertices, vector<int> indices, bool calculateNormals)
+{
+    InitMesh();
+    AddVertices(vertices, indices, calculateNormals);
+}
+
+void Mesh::InitMesh()
 {
     if (!Window::isInitialized()) return;
     
     glGenBuffers(1, &vbo);
     glGenBuffers(1, &ibo);
-
+    
     size = 0;
 }
 
@@ -111,4 +136,59 @@ void Mesh::CalculateNormals(vector<Vertex> &vertices, vector<int> &indices)
     {
         vertices[i].normal = vertices[i].normal.Normalized();
     }
+}
+
+void Mesh::LoadMesh(std::string filePath)
+{
+    std::string ext = filePath.substr(filePath.find_last_of(".") + 1);
+    
+    if(ext != "obj")
+    {
+        Util::Print("Error: File format not supported for mesh data: " + ext);
+        Util::Exit();
+    }
+    
+    vector<Vertex> vertices;
+    vector<int> indices;
+    
+    std::ifstream shaderStream;
+    shaderStream.open(filePath.c_str(), std::ios::in);
+    if(shaderStream.is_open())
+    {
+        std::string line = "";
+        while(getline(shaderStream, line))
+        {
+            vector<std::string> tokens = Util::Split(line, ' ');
+            
+            if (tokens.size()==0 || tokens[0]=="#") {
+                continue;
+            }
+            else if (tokens[0] == "v")
+            {
+                vertices.push_back(Vertex(Vector3(stof(tokens[1]), stof(tokens[2]), stof(tokens[3]))));
+            }
+            else if (tokens[0] == "f")
+            {
+                indices.push_back(stoi(Util::Split(tokens[1], '/')[0]) - 1);
+                indices.push_back(stoi(Util::Split(tokens[2], '/')[0]) - 1);
+                indices.push_back(stoi(Util::Split(tokens[3], '/')[0]) - 1);
+                
+                if (tokens.size() > 4)
+                {
+                    indices.push_back(stoi(Util::Split(tokens[1], '/')[0]) - 1);
+                    indices.push_back(stoi(Util::Split(tokens[3], '/')[0]) - 1);
+                    indices.push_back(stoi(Util::Split(tokens[4], '/')[0]) - 1);
+                }
+            }
+        }
+        
+        shaderStream.close();
+    }
+    else
+    {
+        Util::Print("Unable to open " + filePath);
+        Util::Exit();
+    }
+    
+    AddVertices(vertices, indices, true);
 }

@@ -10,6 +10,7 @@
 #include <vector>
 #include "Window.hpp"
 #include "Util.hpp"
+#include <fstream>
 
 Shader::Shader()
 {
@@ -21,6 +22,21 @@ Shader::Shader()
         std::cout << "Shader creation failed." << std::endl;
         exit(EXIT_FAILURE);
     }
+}
+
+void Shader::AddVertexShaderFromFile(std::string filePath)
+{
+    AddProgram(LoadShader(filePath), GL_VERTEX_SHADER);
+}
+
+void Shader::AddGeometryShaderFromFile(std::string filePath)
+{
+    AddProgram(LoadShader(filePath), GL_GEOMETRY_SHADER);
+}
+
+void Shader::AddFragmentShaderFromFile(std::string filePath)
+{
+    AddProgram(LoadShader(filePath), GL_FRAGMENT_SHADER);
 }
 
 void Shader::AddVertexShader(std::string text)
@@ -148,4 +164,28 @@ void Shader::SetUniform(std::string uniform, Matrix4 value)
 
 void Shader::UpdateUniform(Matrix4 worldMatrix, Matrix4 projectedMatrix, Material material)
 {
+}
+
+std::string Shader::LoadShader(std::string filePath)
+{
+    std::string shaderCode;
+    
+    std::ifstream shaderStream;
+    shaderStream.open(filePath.c_str(), std::ios::in);
+    if(shaderStream.is_open())
+    {
+        std::string line = "";
+        while(getline(shaderStream, line))
+        {
+            shaderCode += "\n" + line;
+        }
+        shaderStream.close();
+    }
+    else
+    {
+        Util::Print("Unable to open " + filePath);
+        Util::Exit();
+    }
+    
+    return shaderCode;
 }

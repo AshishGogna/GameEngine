@@ -24,7 +24,6 @@
 		23660226200764F100D38941 /* BasicShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23660224200764F100D38941 /* BasicShader.cpp */; };
 		2366022920076E0400D38941 /* Material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2366022720076E0400D38941 /* Material.cpp */; };
 		236DB1002009BEAA00E4AE63 /* SpotLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 236DB0FE2009BEAA00E4AE63 /* SpotLight.cpp */; };
-		239205221FFA0E750016F165 /* ResourceLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 239205201FFA0E750016F165 /* ResourceLoader.cpp */; };
 		239205251FFA113A0016F165 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 239205231FFA113A0016F165 /* Shader.cpp */; };
 		239584EC2005FF1500682695 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 239584EA2005FF1500682695 /* Camera.cpp */; };
 		23A2E3F620077DDE00EC4399 /* PhongShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23A2E3F420077DDE00EC4399 /* PhongShader.cpp */; };
@@ -88,8 +87,6 @@
 		2366022820076E0400D38941 /* Material.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Material.hpp; path = Core/Material.hpp; sourceTree = "<group>"; };
 		236DB0FE2009BEAA00E4AE63 /* SpotLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpotLight.cpp; path = Core/SpotLight.cpp; sourceTree = "<group>"; };
 		236DB0FF2009BEAA00E4AE63 /* SpotLight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SpotLight.hpp; path = Core/SpotLight.hpp; sourceTree = "<group>"; };
-		239205201FFA0E750016F165 /* ResourceLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResourceLoader.cpp; path = Core/ResourceLoader.cpp; sourceTree = "<group>"; };
-		239205211FFA0E750016F165 /* ResourceLoader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ResourceLoader.hpp; path = Core/ResourceLoader.hpp; sourceTree = "<group>"; };
 		239205231FFA113A0016F165 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Shader.cpp; path = Core/Shader.cpp; sourceTree = "<group>"; };
 		239205241FFA113A0016F165 /* Shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Shader.hpp; path = Core/Shader.hpp; sourceTree = "<group>"; };
 		239584EA2005FF1500682695 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Camera.cpp; path = Core/Camera.cpp; sourceTree = "<group>"; };
@@ -164,8 +161,6 @@
 				23EB17781FF6113600D3DC5E /* Mesh.hpp */,
 				23EB177A1FF6176C00D3DC5E /* Util.cpp */,
 				23EB177B1FF6176C00D3DC5E /* Util.hpp */,
-				239205201FFA0E750016F165 /* ResourceLoader.cpp */,
-				239205211FFA0E750016F165 /* ResourceLoader.hpp */,
 				239205231FFA113A0016F165 /* Shader.cpp */,
 				239205241FFA113A0016F165 /* Shader.hpp */,
 				23660224200764F100D38941 /* BasicShader.cpp */,
@@ -309,7 +304,6 @@
 				23A2E3F620077DDE00EC4399 /* PhongShader.cpp in Sources */,
 				23D7EA3620086476007AE73B /* PointLight.cpp in Sources */,
 				232803541FF382F700365AA6 /* Matrix4.cpp in Sources */,
-				239205221FFA0E750016F165 /* ResourceLoader.cpp in Sources */,
 				234971001FF22B41005B0931 /* main.cpp in Sources */,
 				235AB90A1FF4AE9700160ECC /* Quaternion.cpp in Sources */,
 				23660223200745D700D38941 /* Texture.cpp in Sources */,
