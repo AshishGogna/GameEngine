@@ -43,6 +43,7 @@ PhongShader::PhongShader(Transform t)
         AddUniform("pointLights[" + to_string(i) + "].atten.linear");
         AddUniform("pointLights[" + to_string(i) + "].atten.exponent");
         AddUniform("pointLights[" + to_string(i) + "].position");
+        AddUniform("pointLights[" + to_string(i) + "].range");
     }
 }
 
@@ -86,6 +87,7 @@ void PhongShader::SetUniformPointLight(std::string uniform, PointLight pl)
     SetUniformf(uniform + ".atten.linear", pl.atten.linear);
     SetUniformf(uniform + ".atten.exponent", pl.atten.exponent);
     SetUniform(uniform + ".position", pl.position);
+    SetUniformf(uniform + ".range", pl.range);
 }
 
 void PhongShader::SetPointLights(vector<PointLight> pls)

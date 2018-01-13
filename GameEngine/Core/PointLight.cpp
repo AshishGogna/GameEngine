@@ -13,9 +13,10 @@ PointLight::PointLight()
     
 }
 
-PointLight::PointLight(BaseLight bl, Attenuation atten, Vector3 pos)
+PointLight::PointLight(BaseLight bl, Attenuation atten, Vector3 pos, float range)
 {
     this->bl = bl;
     this->atten = atten;
     position = pos;
+    this->range = range;
 }

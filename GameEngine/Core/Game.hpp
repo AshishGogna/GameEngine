@@ -26,8 +26,8 @@ private:
     Transform transform;
     Material material;
     
-    PointLight pl1 = PointLight(BaseLight(Vector3(1, 0.5, 0), 0.8), Attenuation(0, 0, 1), Vector3(-2, 0, 5));
-    PointLight pl2 = PointLight(BaseLight(Vector3(0, 0.5, 1), 0.8), Attenuation(0, 0, 1), Vector3(2, 0, 7));
+    PointLight pl1 = PointLight(BaseLight(Vector3(1, 0.5, 0), 0.8), Attenuation(0, 0, 1), Vector3(-2, 0, 5), 5);
+    PointLight pl2 = PointLight(BaseLight(Vector3(0, 0.5, 1), 0.8), Attenuation(0, 0, 1), Vector3(2, 0, 7), 5);
     vector<PointLight> pls = {pl1, pl2};
 
 public:

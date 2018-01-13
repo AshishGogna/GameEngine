@@ -19,9 +19,10 @@ public:
     BaseLight bl;
     Attenuation atten;
     Vector3 position;
+    float range;
     
     PointLight();
-    PointLight(BaseLight bl, Attenuation atten, Vector3 pos);
+    PointLight(BaseLight bl, Attenuation atten, Vector3 pos, float range);
 };
 
 #endif /* PointLight_hpp */
