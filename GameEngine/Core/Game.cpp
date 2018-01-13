@@ -70,9 +70,13 @@ void Game::Update()
     //transform.SetRotation(0, sinTemp * 360, 0);
     //transform.SetScale(0.7*sinTemp, 0.7*sinTemp, 0.7*sinTemp);
     
-    pls[0].position = Vector3(3, 0, 8*(sinf(temp)+1/2) + 10);
-    pls[1].position = Vector3(7, 0, 8*(cosf(temp)+1/2) + 10);
-    static_cast<PhongShader*>(shader)->SetPointLights(pls);
+    //pls[0].position = Vector3(3, 0, 8*(sinf(temp)+1/2) + 10);
+    //pls[1].position = Vector3(7, 0, 8*(cosf(temp)+1/2) + 10);
+    //static_cast<PhongShader*>(shader)->SetPointLights(pls);
+
+    sls[0].pl.position = transform.camera.position;
+    sls[0].direction = transform.camera.forward;
+    static_cast<PhongShader*>(shader)->SetSpotLights(sls);
 }
 
 void Game::Render()

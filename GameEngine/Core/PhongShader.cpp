@@ -45,6 +45,19 @@ PhongShader::PhongShader(Transform t)
         AddUniform("pointLights[" + to_string(i) + "].position");
         AddUniform("pointLights[" + to_string(i) + "].range");
     }
+
+    for (int i=0; i<MAX_SPOT_LIGHTS; i++)
+    {
+        AddUniform("spotLights[" + to_string(i) + "].pl.bl.color");
+        AddUniform("spotLights[" + to_string(i) + "].pl.bl.intensity");
+        AddUniform("spotLights[" + to_string(i) + "].pl.atten.constant");
+        AddUniform("spotLights[" + to_string(i) + "].pl.atten.linear");
+        AddUniform("spotLights[" + to_string(i) + "].pl.atten.exponent");
+        AddUniform("spotLights[" + to_string(i) + "].pl.position");
+        AddUniform("spotLights[" + to_string(i) + "].pl.range");
+        AddUniform("spotLights[" + to_string(i) + "].direction");
+        AddUniform("spotLights[" + to_string(i) + "].cutoff");
+    }
 }
 
 void PhongShader::UpdateUniform(Matrix4 worldMatrix, Matrix4 projectedMatrix, Material material)
@@ -66,6 +79,9 @@ void PhongShader::UpdateUniform(Matrix4 worldMatrix, Matrix4 projectedMatrix, Ma
     
     for (int i=0; i<pointLights.size(); i++)
         SetUniformPointLight("pointLights[" + to_string(i) + "]", pointLights[i]);
+
+    for (int i=0; i<spotLights.size(); i++)
+        SetUniformSpotLight("spotLights[" + to_string(i) + "]", spotLights[i]);
 }
 
 void PhongShader::SetUniformBaseLight(std::string uniform, BaseLight bl)
@@ -90,6 +106,13 @@ void PhongShader::SetUniformPointLight(std::string uniform, PointLight pl)
     SetUniformf(uniform + ".range", pl.range);
 }
 
+void PhongShader::SetUniformSpotLight(std::string uniform, SpotLight sl)
+{
+    SetUniformPointLight(uniform + ".pl", sl.pl);
+    SetUniform(uniform + ".direction", sl.direction);
+    SetUniformf(uniform + ".cutoff", sl.cutoff);
+}
+
 void PhongShader::SetPointLights(vector<PointLight> pls)
 {
     if (pls.size() > MAX_POINT_LIGHTS)
@@ -99,4 +122,15 @@ void PhongShader::SetPointLights(vector<PointLight> pls)
     }
     
     pointLights = pls;
+}
+
+void PhongShader::SetSpotLights(vector<SpotLight> sls)
+{
+    if (sls.size() > MAX_SPOT_LIGHTS)
+    {
+        Util::Print("Too many spot lights. \nMax allowed: " + to_string(MAX_SPOT_LIGHTS));
+        Util::Exit();
+    }
+    
+    spotLights = sls;
 }

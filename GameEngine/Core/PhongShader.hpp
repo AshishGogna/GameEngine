@@ -20,16 +20,19 @@
 #include "Transform.hpp"
 #include "PointLight.hpp"
 #include <vector>
+#include "SpotLight.hpp"
 
 class PhongShader : public Shader
 {
 private:
     const int MAX_POINT_LIGHTS = 4;
+    const int MAX_SPOT_LIGHTS = 4;
     Transform trns;
 public:
     Vector3 ambientLight;
     DirectionalLight directionalLight;
     vector<PointLight> pointLights;
+    vector<SpotLight> spotLights;
     
     PhongShader();
     PhongShader(Transform t);
@@ -38,8 +41,10 @@ public:
     void SetUniformBaseLight(std::string uniform, BaseLight bl);
     void SetUniformDirectionalLight(std::string uniform, DirectionalLight dl);
     void SetUniformPointLight(std::string uniform, PointLight pl);
+    void SetUniformSpotLight(std::string uniform, SpotLight sl);
     
     void SetPointLights(vector<PointLight> pls);
+    void SetSpotLights(vector<SpotLight> sls);
 };
 
 #endif /* PhongShader_hpp */
