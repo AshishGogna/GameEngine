@@ -1,2 +1,2 @@
-# GameEngine
-A 3D Game Engine
+# GraphicsEngine
+A 3D Graphics Engine.
