@@ -7,14 +7,11 @@
 //
 
 #include <iostream>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <glm.hpp>
+#include "MainComponent.hpp"
 
 int main(int argc, const char * argv[])
 {
-    // insert code here...
+    MainComponent mc = MainComponent();
     
-    std::cout << "Hello, World!\n";
     return 0;
 }
