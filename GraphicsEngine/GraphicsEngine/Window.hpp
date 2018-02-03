@@ -27,6 +27,7 @@ private:
 
 public:
     static void CreateWindow(int width = 800, int height = 600, string name = "A Window");
+    static void Terminate();
     static void Clear();
     static void SwapBuffers();
     static bool ShouldClose();

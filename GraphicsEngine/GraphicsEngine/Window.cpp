@@ -51,6 +51,11 @@ void Window::CreateWindow(int w, int h, string n)
     glBindVertexArray(VertexArrayID);
 }
 
+void Window::Terminate()
+{
+    glfwTerminate();
+}
+
 void Window::Clear()
 {
     glClearColor(0, 0, 0, 1);

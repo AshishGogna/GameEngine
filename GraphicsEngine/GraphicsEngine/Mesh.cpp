@@ -13,32 +13,64 @@
 
 Mesh::Mesh()
 {
-    static const GLfloat g_vertex_buffer_data[] = {
-        -1.0f, -1.0f, 0.0f,
-        1.0f, -1.0f, 0.0f,
-        0.0f,  1.0f, 0.0f,
-    };
+    Init();
+}
+
+Mesh::Mesh(vector<Vertex> vertices, vector<int> indices)
+{
+    Init();
+    AddVertices(vertices, indices);
+}
+
+void Mesh::Init()
+{
+    glGenBuffers(1, &vbo);
+    glGenBuffers(1, &ibo);
+}
+
+void Mesh::AddVertices(vector<Vertex> vertices, vector<int> indices)
+{
+    size = (int)indices.size();
+    int vertsSize = (int)vertices.size() * Vertex::SIZE;
     
-    glGenBuffers(1, &vertexbuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
+    //Creat buffer from vertices vector
+    GLfloat verts[vertsSize];
+    int i=0;
+    for (int j=0; j<(int)vertices.size(); j++)
+    {
+        verts[i] = vertices[j].position.x;
+        i++;
+        verts[i] = vertices[j].position.y;
+        i++;
+        verts[i] = vertices[j].position.z;
+        i++;
+    }
+    
+    //Creat buffer from indices vector
+    GLuint inds[size];
+    for (int j=0; j<size; j++)
+    {
+        inds[j] = indices[j];
+    }
+    
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(verts), verts, GL_STATIC_DRAW);
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(inds), inds, GL_STATIC_DRAW);
 }
 
 void Mesh::Draw()
 {
     glEnableVertexAttribArray(0);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-    glVertexAttribPointer(
-                          0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-                          3,                  // size
-                          GL_FLOAT,           // type
-                          GL_FALSE,           // normalized?
-                          0,                  // stride
-                          (void*)0            // array buffer offset
-                          );
-    // Draw the triangle !
-    glDrawArrays(GL_TRIANGLES, 0, 3); // Starting from vertex 0; 3 vertices total -> 1 triangle
+
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, Vertex::SIZE * 4, (void*)0);
+    
+    glDrawElements(GL_TRIANGLES, size, GL_UNSIGNED_INT, 0);
+    
     glDisableVertexAttribArray(0);
+    
 }
 
 GLuint Mesh::LoadShaders(const char * vertex_file_path,const char * fragment_file_path){

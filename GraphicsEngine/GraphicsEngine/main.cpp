@@ -8,10 +8,11 @@
 
 #include <iostream>
 #include "MainComponent.hpp"
+#include "Util.hpp"
 
 int main(int argc, const char * argv[])
 {
     MainComponent mc = MainComponent();
-    
+
     return 0;
 }

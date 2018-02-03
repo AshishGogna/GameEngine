@@ -10,6 +10,7 @@
 #include "Window.hpp"
 #include "Mesh.hpp"
 #include "Shader.hpp"
+#include "Util.hpp"
 
 MainComponent::MainComponent()
 {
@@ -22,14 +23,25 @@ void MainComponent::Start()
     Run();
 }
 
+void MainComponent::Stop()
+{
+    Window::Terminate();
+}
+
 void MainComponent::Run()
 {
-    Mesh m = Mesh();
+    vector<Vertex> vertices{};
+    vertices.push_back(Vertex(Vector3(-1, -1, 0)));
+    vertices.push_back(Vertex(Vector3(1, -1, 0)));
+    vertices.push_back(Vertex(Vector3(0, 1, 0)));
+    
+    vector<int> indices = {0, 1, 2};
+    
+    Mesh m = Mesh(vertices, indices);
     
     Shader s = Shader("/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicVertex.glsl", "/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicFragment.glsl");
     s.Bind();
 
-    //Run while ESC key not pressed and the window wasn't closed
     do
     {
         Window::Clear();
@@ -39,4 +51,6 @@ void MainComponent::Run()
         Window::SwapBuffers();
     }
     while(Window::ShouldClose());
+    
+    Stop();
 }

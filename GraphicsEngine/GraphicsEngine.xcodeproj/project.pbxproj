@@ -21,6 +21,7 @@
 		23349D30202581ED0087D2C0 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23349D2E202581ED0087D2C0 /* Mesh.cpp */; };
 		23349D33202584880087D2C0 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23349D31202584880087D2C0 /* Shader.cpp */; };
 		23349D3A2025903A0087D2C0 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23349D382025903A0087D2C0 /* Vector3.cpp */; };
+		23349D3D202593000087D2C0 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23349D3B202593000087D2C0 /* Vertex.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +60,8 @@
 		23349D36202587130087D2C0 /* BasicFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BasicFragment.glsl; sourceTree = "<group>"; };
 		23349D382025903A0087D2C0 /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
 		23349D392025903A0087D2C0 /* Vector3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector3.hpp; sourceTree = "<group>"; };
+		23349D3B202593000087D2C0 /* Vertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vertex.cpp; sourceTree = "<group>"; };
+		23349D3C202593000087D2C0 /* Vertex.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vertex.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 				23349D2F202581ED0087D2C0 /* Mesh.hpp */,
 				23349D31202584880087D2C0 /* Shader.cpp */,
 				23349D32202584880087D2C0 /* Shader.hpp */,
+				23349D3B202593000087D2C0 /* Vertex.cpp */,
+				23349D3C202593000087D2C0 /* Vertex.hpp */,
 			);
 			path = GraphicsEngine;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23349D2A202575020087D2C0 /* Util.cpp in Sources */,
+				23349D3D202593000087D2C0 /* Vertex.cpp in Sources */,
 				23349D1020256AB00087D2C0 /* main.cpp in Sources */,
 				23349D2D20257E490087D2C0 /* MainComponent.cpp in Sources */,
 				23349D27202573BA0087D2C0 /* Window.cpp in Sources */,

@@ -12,16 +12,25 @@
 #include <stdio.h>
 #include <GL/glew.h>
 #include <iostream>
+#include "Vertex.hpp"
+#include <vector>
 
 using namespace std;
 
 class Mesh
 {
 private:
-    GLuint vertexbuffer;
-
+    GLuint vbo;
+    GLuint ibo;
+    
+    void  Init();
+    void AddVertices(vector<Vertex> vertices, vector<int> indices);
+    
 public:
+    int size;
+    
     Mesh();
+    Mesh(vector<Vertex> vertices, vector<int> indices);
     
     void Draw();
     GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path);

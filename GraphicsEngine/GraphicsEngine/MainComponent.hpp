@@ -15,11 +15,11 @@ class MainComponent
 {
 private:
     void Run();
+    void Start();
+    void Stop();
     
 public:
     MainComponent();
-    
-    void Start();
 };
 
 #endif /* MainComponent_hpp */
