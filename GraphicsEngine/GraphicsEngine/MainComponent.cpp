@@ -28,17 +28,7 @@ void MainComponent::Stop()
 
 void MainComponent::Run()
 {
-    vector<Vertex> vertices{};
-    vertices.push_back(Vertex(Vector3(-1, -1, 0)));
-    vertices.push_back(Vertex(Vector3(1, -1, 0)));
-    vertices.push_back(Vertex(Vector3(0, 1, 0)));
-    vertices.push_back(Vertex(Vector3(0, -1, -1)));
-    vector<int> indices = {0, 1, 2, 2, 0, 3, 3, 1, 2, 0, 1, 3};
-    mesh = Mesh(vertices, indices);
-    
-    shader = Shader("/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicVertex.glsl", "/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicFragment.glsl");
-    shader.Bind();
-    shader.AddUiform("transform");
+    Test();
 
     //Main Loop
     do
@@ -51,17 +41,37 @@ void MainComponent::Run()
     Stop();
 }
 
+void MainComponent::Test()
+{
+    camera = Camera(70, 0.1, 1000);
+    
+    vector<Vertex> vertices{};
+    vertices.push_back(Vertex(Vector3(-1, -1, 0)));
+    vertices.push_back(Vertex(Vector3(1, -1, 0)));
+    vertices.push_back(Vertex(Vector3(0, 1, 0)));
+    vertices.push_back(Vertex(Vector3(0, -1, -1)));
+    vector<int> indices = {0, 1, 2, 2, 0, 3, 3, 1, 2, 0, 1, 3};
+    meshes.push_back(Mesh(vertices, indices));
+    
+    meshes[0].transform.Translate(Vector3(0, 0, 5));
+    
+    shader = Shader("/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicVertex.glsl", "/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicFragment.glsl");
+    shader.Bind();
+    shader.AddUiform("transform");
+}
+
 void MainComponent::Update()
 {
-    mesh.transform.Rotate(Vector3(0, 1, 0));
+    //meshes[0].transform.Rotate(Vector3(0, 1, 0));
+    //camera.transform.Translate(Vector3(0.01, 0, 0));
 }
 
 void MainComponent::Render()
 {
     Window::Clear();
     
-    shader.SetUniform("transform", mesh.transform.GetTransformationMatrix());
-    mesh.Draw();
+    shader.SetUniform("transform", camera.GetMvpMatrix(meshes));
+    meshes[0].Draw();
     
     Window::SwapBuffers();
 

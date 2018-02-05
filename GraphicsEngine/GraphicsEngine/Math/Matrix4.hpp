@@ -30,6 +30,8 @@ public:
     Matrix4 TranslationMatrix(Vector3 by);
     Matrix4 RotationMatrix(Vector3 by);
     Matrix4 ScaleMatrix(Vector3 by);
+    Matrix4 ProjectionMatrix(float fov, float width, float height, float zNear, float zFar);
+    Matrix4 CameraMatrix(Vector3 position, Vector3 fwd, Vector3 up);
 
     Matrix4 operator * (Matrix4 m);
     string ToString();

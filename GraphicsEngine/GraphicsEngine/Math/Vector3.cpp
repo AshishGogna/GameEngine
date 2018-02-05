@@ -111,6 +111,51 @@ Vector3 Vector3::One()
     return *this;
 }
 
+Vector3 Vector3::Up()
+{
+    x = 0;
+    y = 1;
+    z = 0;
+    
+    return  *this;
+}
+
+Vector3 Vector3::Right()
+{
+    x = 1;
+    y = 0;
+    z = 0;
+    
+    return  *this;
+}
+
+Vector3 Vector3::Down()
+{
+    x = 0;
+    y = -1;
+    z = 0;
+    
+    return  *this;
+}
+
+Vector3 Vector3::Left()
+{
+    x = -1;
+    y = 0;
+    z = 0;
+    
+    return  *this;
+}
+
+Vector3 Vector3::Forward()
+{
+    x = 0;
+    y = 0;
+    z = 1;
+    
+    return  *this;
+}
+
 Vector3 Vector3::operator + (Vector3 v)
 {
     return Add(v);
@@ -119,6 +164,15 @@ Vector3 Vector3::operator + (Vector3 v)
 Vector3 Vector3::operator * (Vector3 v)
 {
     return Multiply(v);
+}
+
+Vector3 Vector3::operator - ()
+{
+    x *= -1;
+    y *= -1;
+    z *= -1;
+    
+    return  *this;
 }
 
 string Vector3::ToString()

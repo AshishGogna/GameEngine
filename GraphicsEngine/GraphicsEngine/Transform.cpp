@@ -8,12 +8,19 @@
 
 #include "Transform.hpp"
 #include "Util.hpp"
+#include "Window.hpp"
 
 Transform::Transform()
 {
     position = Vector3().Zero();
     rotation = Vector3().Zero();
     scale = Vector3().One();
+
+    up = Vector3().Up();
+    forward = Vector3().Forward();
+    right = Vector3().Right();
+
+    UpdateDirections();
 }
 
 void Transform::Translate(Vector3 by)
@@ -38,4 +45,8 @@ Matrix4 Transform::GetTransformationMatrix()
     Matrix4 scaleMatrix = Matrix4().ScaleMatrix(scale);
     
     return  translationMatrix * rotationMatrix * scaleMatrix;
+}
+
+void Transform::UpdateDirections()
+{
 }

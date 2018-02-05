@@ -18,6 +18,7 @@ class Vector3
 {
 public:
     float x, y, z;
+    
     Vector3();
     Vector3(float x, float y, float z);
     
@@ -36,9 +37,15 @@ public:
     Vector3 Abs();
     Vector3 Zero();
     Vector3 One();
-    
+    Vector3 Up();
+    Vector3 Right();
+    Vector3 Left();
+    Vector3 Down();
+    Vector3 Forward();
+
     Vector3 operator + (Vector3 v);
     Vector3 operator * (Vector3 v);
+    Vector3 operator - ();
     
     string ToString();
 };

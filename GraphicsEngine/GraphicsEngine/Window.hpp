@@ -33,8 +33,10 @@ public:
     static void Clear();
     static void SwapBuffers();
     static bool ShouldClose();
-    static GLFWwindow* GetWindow();
     static bool isInitialized();
+    static int GetWidth();
+    static int GetHeight();
+    static GLFWwindow* GetWindow();
 };
 
 #endif /* Window_hpp */

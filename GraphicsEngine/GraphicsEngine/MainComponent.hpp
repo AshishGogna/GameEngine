@@ -12,11 +12,13 @@
 #include <stdio.h>
 #include "Mesh.hpp"
 #include "Shader.hpp"
+#include "Camera.hpp"
 
 class MainComponent
 {
 private:
-    Mesh mesh;
+    Camera camera;
+    vector<Mesh> meshes;
     Shader shader;
     
     void Run();
@@ -24,6 +26,7 @@ private:
     void Stop();
     void Update();
     void Render();
+    void Test();
     
 public:
     MainComponent();

@@ -56,7 +56,6 @@ void Window::Terminate()
 
 void Window::Clear()
 {
-    glClearColor(0, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
@@ -88,14 +87,20 @@ void Window::InitGraphics()
     glGenVertexArrays(1, &VertexArrayID);
     glBindVertexArray(VertexArrayID);
 
-    //Draw what faces the camera
-    //glFrontFace(GL_CW);
-    //glCullFace(GL_BACK);
-    //glEnable(GL_CULL_FACE);
-    //glEnable(GL_DEPTH_TEST);
+    glClearColor(0, 0, 0, 1);
     
-    //glEnable(GL_DEPTH_CLAMP);
-    //glEnable(GL_TEXTURE_2D);
     
-    //glEnable(GL_FRAMEBUFFER_SRGB);
+    glEnable(GL_DEPTH_TEST); // Enable depth test
+    glDepthFunc(GL_LESS); // Accept fragment if it closer to the camera than the former one
+    
+}
+
+int Window::GetWidth()
+{
+    return width;
+}
+
+int Window::GetHeight()
+{
+    return height;
 }

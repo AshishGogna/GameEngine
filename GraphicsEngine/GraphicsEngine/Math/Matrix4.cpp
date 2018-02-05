@@ -91,6 +91,45 @@ Matrix4 Matrix4::ScaleMatrix(Vector3 by)
     return *this;
 }
 
+Matrix4 Matrix4::ProjectionMatrix(float fov, float width, float height, float zNear, float zFar)
+{
+    float aspecRatio = width / height;
+    float tanHalfFOV = tanf((fov/2) * (M_PI/180));
+    float zRange = zNear - zFar;
+
+    mat[0][0] = 1/(tanHalfFOV*aspecRatio); mat[0][1] = 0;            mat[0][2] = 0;                    mat[0][3] = 0;
+    mat[1][0] = 0;                         mat[1][1] = 1/tanHalfFOV; mat[1][2] = 0;                    mat[1][3] = 0;
+    mat[2][0] = 0;                         mat[2][1] = 0;            mat[2][2] = (-zNear-zFar)/zRange; mat[2][3] = 2*zFar*zNear/zRange;
+    mat[3][0] = 0;                         mat[3][1] = 0;            mat[3][2] = 1;                    mat[3][3] = 0;
+    
+    return *this;
+}
+
+Matrix4 Matrix4::CameraMatrix(Vector3 position, Vector3 fwd, Vector3 up)
+{
+    
+    Vector3 f = fwd;
+    f.Normalized();
+    
+    Vector3 r = up;
+    r.Normalized();
+    r = r.Cross(f);
+    
+    Vector3 u = f.Cross(r);
+    
+    Matrix4 rot;
+    rot.mat[0][0] = r.x;    rot.mat[0][1] = r.y;     rot.mat[0][2] = r.z;   rot.mat[0][3] = 0;
+    rot.mat[1][0] = u.x;    rot.mat[1][1] = u.y;     rot.mat[1][2] = u.z;   rot.mat[1][3] = 0;
+    rot.mat[2][0] = f.x;    rot.mat[2][1] = f.y;     rot.mat[2][2] = f.z;   rot.mat[2][3] = 0;
+    rot.mat[3][0] = 0;      rot.mat[3][1] = 0;       rot.mat[3][2] = 0;     rot.mat[3][3] = 1;
+    
+    Matrix4 trans = TranslationMatrix(-position);
+    
+    SetMat((rot * trans).mat);
+    
+    return *this;
+}
+
 Matrix4 Matrix4::operator*(Matrix4 m)
 {
     Matrix4 res = Matrix4();
