@@ -32,8 +32,10 @@ public:
     Matrix4 ScaleMatrix(Vector3 by);
     Matrix4 ProjectionMatrix(float fov, float width, float height, float zNear, float zFar);
     Matrix4 CameraMatrix(Vector3 position, Vector3 fwd, Vector3 up);
-
+    
     Matrix4 operator * (Matrix4 m);
+    Vector3 operator * (Vector3 v);
+    
     string ToString();
 };
 

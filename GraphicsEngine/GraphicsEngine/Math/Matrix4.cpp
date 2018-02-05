@@ -108,14 +108,9 @@ Matrix4 Matrix4::ProjectionMatrix(float fov, float width, float height, float zN
 Matrix4 Matrix4::CameraMatrix(Vector3 position, Vector3 fwd, Vector3 up)
 {
     
-    Vector3 f = fwd;
-    f.Normalized();
-    
-    Vector3 r = up;
-    r.Normalized();
-    r = r.Cross(f);
-    
-    Vector3 u = f.Cross(r);
+    Vector3 f = fwd.Normalized();
+    Vector3 r = up.Cross(f).Normalized();
+    Vector3 u = f.Cross(r).Normalized();
     
     Matrix4 rot;
     rot.mat[0][0] = r.x;    rot.mat[0][1] = r.y;     rot.mat[0][2] = r.z;   rot.mat[0][3] = 0;
@@ -145,6 +140,28 @@ Matrix4 Matrix4::operator*(Matrix4 m)
         }
     }
     
+    return res;
+}
+
+Vector3 Matrix4::operator*(Vector3 v)
+{
+    float m[4] = {0, 0, 0, 1};
+    
+    for (int i=0; i<4; i++)
+    {
+        for (int j=0; j<4; j++)
+        {
+            m[i] = mat[i][0] * v.x +
+                   mat[i][1] * v.y +
+                   mat[i][2] * v.z +
+                   mat[i][3] * 1;
+        }
+    }
+    
+    //for (int i=0; i<4; i++)
+        //cout << "? = " << m[i] << endl;
+    
+    Vector3 res = Vector3(m[0], m[1], m[2]);
     return res;
 }
 

@@ -28,9 +28,10 @@ void Transform::Translate(Vector3 by)
     position = position + by;
 }
 
-void Transform::Rotate(Vector3 by)
+void Transform::Rotate(float angle, Vector3 axis)
 {
-    rotation = rotation + by;
+    axis = axis.Normalized() * angle;
+    rotation = rotation + axis;
 }
 
 void Transform::Scale(Vector3 by)
@@ -43,6 +44,9 @@ Matrix4 Transform::GetTransformationMatrix()
     Matrix4 translationMatrix = Matrix4().TranslationMatrix(position);
     Matrix4 rotationMatrix = Matrix4().RotationMatrix(rotation);
     Matrix4 scaleMatrix = Matrix4().ScaleMatrix(scale);
+    
+    up = rotationMatrix * up;
+    forward = rotation * forward;
     
     return  translationMatrix * rotationMatrix * scaleMatrix;
 }

@@ -57,20 +57,21 @@ void MainComponent::Test()
     
     shader = Shader("/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicVertex.glsl", "/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicFragment.glsl");
     shader.Bind();
-    shader.AddUiform("transform");
+    shader.AddUiform("mvp");
 }
 
 void MainComponent::Update()
 {
-    //meshes[0].transform.Rotate(Vector3(0, 1, 0));
-    //camera.transform.Translate(Vector3(0.01, 0, 0));
+    camera.Update();
+    
+    //meshes[0].transform.Rotate(10, Vector3(1, 0, 0));
 }
 
 void MainComponent::Render()
 {
     Window::Clear();
     
-    shader.SetUniform("transform", camera.GetMvpMatrix(meshes));
+    shader.SetUniform("mvp", camera.GetMvpMatrix(meshes));
     meshes[0].Draw();
     
     Window::SwapBuffers();

@@ -8,6 +8,7 @@
 
 #include "Vector3.hpp"
 #include <math.h>
+#include "Quaternion.hpp"
 
 Vector3::Vector3()
 {
@@ -88,6 +89,27 @@ Vector3 Vector3::Divide(float f)
     return Vector3(x/f, y/f, z/f);
 }
 
+Vector3 Vector3::Rotate(float angle, Vector3 axis)
+{
+    float sinHalfAngle = sinf((angle/2) * (M_PI/180));
+    float cosHalfAngle = cosf((angle/2) * (M_PI/180));
+    
+    float rx = axis.x * sinHalfAngle;
+    float ry = axis.y * sinHalfAngle;
+    float rz = axis.z * sinHalfAngle;
+    float rw = cosHalfAngle;
+    
+    Quaternion rot = Quaternion(rx, ry, rz, rw);
+    Quaternion conjugate = rot.Conjugate();
+    Quaternion w = rot.Multiply(*this).Multiply(conjugate);
+    
+    x = w.x;
+    y = w.y;
+    z = w.z;
+    
+    return *this;
+}
+
 Vector3 Vector3::Abs()
 {
     return Vector3(fabsf(x), fabsf(y), fabsf(z));
@@ -164,6 +186,11 @@ Vector3 Vector3::operator + (Vector3 v)
 Vector3 Vector3::operator * (Vector3 v)
 {
     return Multiply(v);
+}
+
+Vector3 Vector3::operator * (float f)
+{
+    return Multiply(f);
 }
 
 Vector3 Vector3::operator - ()

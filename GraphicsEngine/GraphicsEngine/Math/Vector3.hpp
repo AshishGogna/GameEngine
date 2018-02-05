@@ -34,6 +34,7 @@ public:
     Vector3 Multiply(float f);
     Vector3 Divide(Vector3 v);
     Vector3 Divide(float f);
+    Vector3 Rotate(float angle, Vector3 axis);
     Vector3 Abs();
     Vector3 Zero();
     Vector3 One();
@@ -45,6 +46,7 @@ public:
 
     Vector3 operator + (Vector3 v);
     Vector3 operator * (Vector3 v);
+    Vector3 operator * (float f);
     Vector3 operator - ();
     
     string ToString();

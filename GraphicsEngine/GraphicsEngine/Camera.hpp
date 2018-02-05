@@ -27,6 +27,7 @@ public:
     Camera(float fov, float zNear, float zFar);
     
     Matrix4 GetMvpMatrix(vector<Mesh> meshes);
+    void Update();
 };
 
 #endif /* Camera_hpp */
