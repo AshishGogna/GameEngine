@@ -23,6 +23,8 @@ public:
     Transform();
     
     void Translate(Vector3 by);
+    void Rotate(Vector3 by);
+    void Scale(Vector3 by);
     Matrix4 GetTransformationMatrix();
 };
 

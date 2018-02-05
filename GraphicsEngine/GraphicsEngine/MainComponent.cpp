@@ -8,8 +8,6 @@
 
 #include "MainComponent.hpp"
 #include "Window.hpp"
-#include "Mesh.hpp"
-#include "Shader.hpp"
 #include "Util.hpp"
 
 MainComponent::MainComponent()
@@ -34,30 +32,38 @@ void MainComponent::Run()
     vertices.push_back(Vertex(Vector3(-1, -1, 0)));
     vertices.push_back(Vertex(Vector3(1, -1, 0)));
     vertices.push_back(Vertex(Vector3(0, 1, 0)));
-    
     vector<int> indices = {0, 1, 2};
+    mesh = Mesh(vertices, indices);
+    mesh.transform.Scale(Vector3(1, 0.5, 0.2));
     
-    Mesh m = Mesh(vertices, indices);
-    m.transform.Translate(Vector3(0.2, 0, 0));
-    //m.transform.GetTransformationMatrix();
-    
-    Shader s = Shader("/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicVertex.glsl", "/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicFragment.glsl");
-    s.Bind();
-    
-    s.AddUiform("transform");
+    shader = Shader("/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicVertex.glsl", "/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicFragment.glsl");
+    shader.Bind();
+    shader.AddUiform("transform");
 
+    //Main Loop
     do
     {
-        Window::Clear();
-        
-        Util::Print(m.transform.GetTransformationMatrix().ToString());
-        s.SetUniform("transform", m.transform.GetTransformationMatrix());
-        
-        m.Draw();
-
-        Window::SwapBuffers();
+        Update();
+        Render();
     }
     while(Window::ShouldClose());
     
     Stop();
+}
+
+void MainComponent::Update()
+{
+    //mesh.transform.Translate(Vector3(0.5, 0, 0));
+    //mesh.transform.Rotate(Vector3(0, 0, 1));
+}
+
+void MainComponent::Render()
+{
+    Window::Clear();
+    
+    shader.SetUniform("transform", mesh.transform.GetTransformationMatrix());
+    mesh.Draw();
+    
+    Window::SwapBuffers();
+
 }

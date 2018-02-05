@@ -36,6 +36,10 @@ public:
     Vector3 Abs();
     Vector3 Zero();
     Vector3 One();
+    
+    Vector3 operator + (Vector3 v);
+    Vector3 operator * (Vector3 v);
+    
     string ToString();
 };
 

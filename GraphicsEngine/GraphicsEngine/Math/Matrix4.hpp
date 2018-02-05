@@ -25,8 +25,12 @@ public:
 
     Matrix4();
     Matrix4(float m[4][4]);
+    
     Matrix4 Identity();
     Matrix4 TranslationMatrix(Vector3 by);
+    Matrix4 RotationMatrix(Vector3 by);
+    Matrix4 ScaleMatrix(Vector3 by);
+
     Matrix4 operator * (Matrix4 m);
     string ToString();
 };

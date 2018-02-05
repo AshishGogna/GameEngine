@@ -11,6 +11,7 @@
 #include <fstream>
 #include <vector>
 #include "Util.hpp"
+#include "Window.hpp"
 
 Shader::Shader()
 {
@@ -29,6 +30,8 @@ Shader::Shader(string vertexShaderPath, string fragmentShaderPath)
 
 void Shader::Init()
 {
+    if (!Window::isInitialized()) return;
+
     program = glCreateProgram();
     if (program == 0)
     {

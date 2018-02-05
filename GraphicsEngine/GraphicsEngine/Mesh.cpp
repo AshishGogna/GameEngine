@@ -10,6 +10,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include "Window.hpp"
 
 Mesh::Mesh()
 {
@@ -24,6 +25,8 @@ Mesh::Mesh(vector<Vertex> vertices, vector<int> indices)
 
 void Mesh::Init()
 {
+    if (!Window::isInitialized()) return;
+
     glGenBuffers(1, &vbo);
     glGenBuffers(1, &ibo);
 }

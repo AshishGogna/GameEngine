@@ -111,6 +111,16 @@ Vector3 Vector3::One()
     return *this;
 }
 
+Vector3 Vector3::operator + (Vector3 v)
+{
+    return Add(v);
+}
+
+Vector3 Vector3::operator * (Vector3 v)
+{
+    return Multiply(v);
+}
+
 string Vector3::ToString()
 {
     return "(" + to_string(x) + ", " + to_string(y) + ", " + to_string(z) + ")";

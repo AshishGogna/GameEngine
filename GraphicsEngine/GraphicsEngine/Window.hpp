@@ -24,6 +24,8 @@ private:
     static int height;
     static string name;
     static GLFWwindow* window;
+    
+    static void InitGraphics();
 
 public:
     static void CreateWindow(int width = 800, int height = 600, string name = "A Window");
@@ -32,6 +34,7 @@ public:
     static void SwapBuffers();
     static bool ShouldClose();
     static GLFWwindow* GetWindow();
+    static bool isInitialized();
 };
 
 #endif /* Window_hpp */
