@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <iostream>
 #include <GL/glew.h>
+#include "Matrix4.hpp"
+#include <map>
 
 using namespace std;
 
@@ -19,6 +21,7 @@ class Shader
 {
 private:
     GLuint program;
+    map<string, int> uniforms;
     
     void AddProgram(string shaderCode, int type);
     string LoadShader(string filePath);
@@ -32,6 +35,9 @@ public:
     void AddVertexShaderFromFile(string filePath);
     void AddFragmentShaderFromFile(string filePath);
     void Bind();
+    
+    void AddUiform(string name);
+    void SetUniform(std::string uniform, Matrix4 value);
 };
 
 #endif /* Shader_hpp */

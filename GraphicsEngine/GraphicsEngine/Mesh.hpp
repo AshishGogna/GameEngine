@@ -14,6 +14,7 @@
 #include <iostream>
 #include "Vertex.hpp"
 #include <vector>
+#include "Transform.hpp"
 
 using namespace std;
 
@@ -28,12 +29,12 @@ private:
     
 public:
     int size;
+    Transform transform;
     
     Mesh();
     Mesh(vector<Vertex> vertices, vector<int> indices);
     
     void Draw();
-    GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path);
 };
 
 #endif /* Mesh_hpp */

@@ -10,6 +10,7 @@
 #include "Util.hpp"
 #include <fstream>
 #include <vector>
+#include "Util.hpp"
 
 Shader::Shader()
 {
@@ -116,4 +117,37 @@ string Shader::LoadShader(string filePath)
     }
     
     return shaderCode;
+}
+
+
+void Shader::AddUiform(string name)
+{
+    GLint uniformLocation = glGetUniformLocation(program, name.c_str());
+
+    if (uniformLocation == 0xFFFFFFFF)
+        Util::ExitWithError("Could not find uniform :" + name);
+    
+    uniforms[name] = uniformLocation;
+}
+
+void Shader::SetUniform(std::string name, Matrix4 value)
+{
+    int size = 4*4;
+    GLfloat buffer[size];
+    
+    //Matrix to buffer
+    int k = 0;
+    while (k < size)
+    {
+        for (int i=0; i<4; i++)
+        {
+            for (int j=0; j<4; j++)
+            {
+                buffer[k] = value.mat[i][j];
+                k++;
+            }
+        }
+    }
+    
+    glUniformMatrix4fv(uniforms[name], 1, GL_TRUE, buffer);
 }

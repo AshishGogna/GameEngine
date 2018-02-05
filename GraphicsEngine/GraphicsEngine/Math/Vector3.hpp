@@ -34,6 +34,8 @@ public:
     Vector3 Divide(Vector3 v);
     Vector3 Divide(float f);
     Vector3 Abs();
+    Vector3 Zero();
+    Vector3 One();
     string ToString();
 };
 

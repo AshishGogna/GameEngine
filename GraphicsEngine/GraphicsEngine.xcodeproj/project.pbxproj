@@ -22,6 +22,8 @@
 		23349D33202584880087D2C0 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23349D31202584880087D2C0 /* Shader.cpp */; };
 		23349D3A2025903A0087D2C0 /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23349D382025903A0087D2C0 /* Vector3.cpp */; };
 		23349D3D202593000087D2C0 /* Vertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23349D3B202593000087D2C0 /* Vertex.cpp */; };
+		233CBD082026C12C006FDD8C /* Matrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 233CBD062026C12C006FDD8C /* Matrix4.cpp */; };
+		233CBD0B2026CC56006FDD8C /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 233CBD092026CC56006FDD8C /* Transform.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +64,10 @@
 		23349D392025903A0087D2C0 /* Vector3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector3.hpp; sourceTree = "<group>"; };
 		23349D3B202593000087D2C0 /* Vertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vertex.cpp; sourceTree = "<group>"; };
 		23349D3C202593000087D2C0 /* Vertex.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vertex.hpp; sourceTree = "<group>"; };
+		233CBD062026C12C006FDD8C /* Matrix4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix4.cpp; sourceTree = "<group>"; };
+		233CBD072026C12C006FDD8C /* Matrix4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Matrix4.hpp; sourceTree = "<group>"; };
+		233CBD092026CC56006FDD8C /* Transform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Transform.cpp; sourceTree = "<group>"; };
+		233CBD0A2026CC56006FDD8C /* Transform.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Transform.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,8 @@
 				23349D32202584880087D2C0 /* Shader.hpp */,
 				23349D3B202593000087D2C0 /* Vertex.cpp */,
 				23349D3C202593000087D2C0 /* Vertex.hpp */,
+				233CBD092026CC56006FDD8C /* Transform.cpp */,
+				233CBD0A2026CC56006FDD8C /* Transform.hpp */,
 			);
 			path = GraphicsEngine;
 			sourceTree = "<group>";
@@ -149,6 +157,8 @@
 			children = (
 				23349D382025903A0087D2C0 /* Vector3.cpp */,
 				23349D392025903A0087D2C0 /* Vector3.hpp */,
+				233CBD062026C12C006FDD8C /* Matrix4.cpp */,
+				233CBD072026C12C006FDD8C /* Matrix4.hpp */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -210,9 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				233CBD0B2026CC56006FDD8C /* Transform.cpp in Sources */,
 				23349D2A202575020087D2C0 /* Util.cpp in Sources */,
 				23349D3D202593000087D2C0 /* Vertex.cpp in Sources */,
 				23349D1020256AB00087D2C0 /* main.cpp in Sources */,
+				233CBD082026C12C006FDD8C /* Matrix4.cpp in Sources */,
 				23349D2D20257E490087D2C0 /* MainComponent.cpp in Sources */,
 				23349D27202573BA0087D2C0 /* Window.cpp in Sources */,
 				23349D3A2025903A0087D2C0 /* Vector3.cpp in Sources */,
@@ -362,6 +374,7 @@
 				23349D1520256AB00087D2C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

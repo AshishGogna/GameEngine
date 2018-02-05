@@ -38,13 +38,20 @@ void MainComponent::Run()
     vector<int> indices = {0, 1, 2};
     
     Mesh m = Mesh(vertices, indices);
+    m.transform.Translate(Vector3(0.2, 0, 0));
+    //m.transform.GetTransformationMatrix();
     
     Shader s = Shader("/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicVertex.glsl", "/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicFragment.glsl");
     s.Bind();
+    
+    s.AddUiform("transform");
 
     do
     {
         Window::Clear();
+        
+        Util::Print(m.transform.GetTransformationMatrix().ToString());
+        s.SetUniform("transform", m.transform.GetTransformationMatrix());
         
         m.Draw();
 

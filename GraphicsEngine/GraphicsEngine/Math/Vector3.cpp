@@ -93,6 +93,24 @@ Vector3 Vector3::Abs()
     return Vector3(fabsf(x), fabsf(y), fabsf(z));
 }
 
+Vector3 Vector3::Zero()
+{
+    x = 0;
+    y = 0;
+    z = 0;
+    
+    return *this;
+}
+
+Vector3 Vector3::One()
+{
+    x = 1;
+    y = 1;
+    z = 1;
+    
+    return *this;
+}
+
 string Vector3::ToString()
 {
     return "(" + to_string(x) + ", " + to_string(y) + ", " + to_string(z) + ")";
