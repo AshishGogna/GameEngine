@@ -32,9 +32,9 @@ void MainComponent::Run()
     vertices.push_back(Vertex(Vector3(-1, -1, 0)));
     vertices.push_back(Vertex(Vector3(1, -1, 0)));
     vertices.push_back(Vertex(Vector3(0, 1, 0)));
-    vector<int> indices = {0, 1, 2};
+    vertices.push_back(Vertex(Vector3(0, -1, -1)));
+    vector<int> indices = {0, 1, 2, 2, 0, 3, 3, 1, 2, 0, 1, 3};
     mesh = Mesh(vertices, indices);
-    mesh.transform.Scale(Vector3(1, 0.5, 0.2));
     
     shader = Shader("/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicVertex.glsl", "/Users/ashishgogna/Desktop/Projects/GraphicsEngine/GraphicsEngine/Resources/BasicFragment.glsl");
     shader.Bind();
@@ -53,8 +53,7 @@ void MainComponent::Run()
 
 void MainComponent::Update()
 {
-    //mesh.transform.Translate(Vector3(0.5, 0, 0));
-    //mesh.transform.Rotate(Vector3(0, 0, 1));
+    mesh.transform.Rotate(Vector3(0, 1, 0));
 }
 
 void MainComponent::Render()
