@@ -30,22 +30,18 @@ Camera::Camera(float fov, float zNear, float zFar)
 Matrix4 Camera::GetMvpMatrix(vector<Mesh> meshes)
 {
     Matrix4 transformationMatrix = meshes[0].transform.GetTransformationMatrix();
-    for (int i=1; i<meshes.size(); i++)
-        transformationMatrix = transformationMatrix * meshes[i].transform.GetTransformationMatrix();
-    
     Matrix4 projectionMatrix = Matrix4().ProjectionMatrix(fov, Window::GetWidth(), Window::GetHeight(), zNear, zFar);
-
-    //Matrix4 cameraTrans = Matrix4().TranslationMatrix(transform.position);
     Matrix4 cameraMatrix = Matrix4().CameraMatrix(transform.position, transform.forward, transform.up);
 
-    return projectionMatrix * cameraMatrix * transformationMatrix;
-    //return projectionMatrix.Multiply(cameraRotation.Multiply(cameraTranslation.Multiply(transformationMatrix)));
+    Matrix4 mvp = projectionMatrix * cameraMatrix * transformationMatrix;
+    for (int i=1; i<meshes.size(); i++)
+        mvp = mvp * meshes[i].transform.GetTransformationMatrix();
+
+    return mvp;
 }
 
 void Camera::Update()
 {
-    //transform.Rotate(1, Vector3(1, 0, 0));
-
     //Movement: WASD
     if (glfwGetKey(Window::GetWindow(), GLFW_KEY_A) == 1)
         transform.Translate(transform.right * -mvmtStep);

@@ -17,8 +17,9 @@ Mesh::Mesh()
     Init();
 }
 
-Mesh::Mesh(vector<Vertex> vertices, vector<int> indices)
+Mesh::Mesh(int id, vector<Vertex> vertices, vector<int> indices)
 {
+    this->id = id;
     Init();
     AddVertices(vertices, indices);
 }
@@ -69,7 +70,6 @@ void Mesh::Draw()
 
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, Vertex::SIZE * 4, (void*)0);
-    
     glDrawElements(GL_TRIANGLES, size, GL_UNSIGNED_INT, 0);
     
     glDisableVertexAttribArray(0);

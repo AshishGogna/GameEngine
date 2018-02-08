@@ -21,6 +21,7 @@ using namespace std;
 class Mesh
 {
 private:
+    int id;
     GLuint vbo;
     GLuint ibo;
     
@@ -32,7 +33,7 @@ public:
     Transform transform;
     
     Mesh();
-    Mesh(vector<Vertex> vertices, vector<int> indices);
+    Mesh(int id, vector<Vertex> vertices, vector<int> indices);
     
     void Draw();
 };
