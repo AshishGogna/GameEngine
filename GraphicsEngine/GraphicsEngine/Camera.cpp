@@ -48,15 +48,13 @@ void Camera::Update()
 
     //Movement: WASD
     if (glfwGetKey(Window::GetWindow(), GLFW_KEY_A) == 1)
-        transform.Translate(transform.right * mvmtStep);
-    /*
+        transform.Translate(transform.right * -mvmtStep);
     if (glfwGetKey(Window::GetWindow(), GLFW_KEY_D) == 1)
-        transform.Translate(Vector3(mvmtStep, 0, 0));
+        transform.Translate(transform.right * mvmtStep);
     if (glfwGetKey(Window::GetWindow(), GLFW_KEY_W) == 1)
-        transform.Translate(Vector3(0, 0, mvmtStep));
+        transform.Translate(transform.forward * mvmtStep);
     if (glfwGetKey(Window::GetWindow(), GLFW_KEY_S) == 1)
-        transform.Translate(Vector3(0, 0, -mvmtStep));
-     */
+        transform.Translate(transform.forward * -mvmtStep);
     
     //Rotation: Arrow keys
     if (glfwGetKey(Window::GetWindow(), GLFW_KEY_LEFT) == 1)

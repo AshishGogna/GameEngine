@@ -42,6 +42,7 @@ void Transform::Rotate(float angle, Vector3 axis)
     forward = view;
     up = forward.Cross(hAxis).Normalized();
     right = up.Cross(forward).Normalized();
+    
     //Util::Print(view.ToString());
 }
 
