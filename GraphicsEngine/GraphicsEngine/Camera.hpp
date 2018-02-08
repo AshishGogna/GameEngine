@@ -20,6 +20,9 @@ private:
     float fov;
     float zNear;
     float zFar;
+    float mvmtStep;
+    float rotStep;
+    
 public:
     Transform transform;
     

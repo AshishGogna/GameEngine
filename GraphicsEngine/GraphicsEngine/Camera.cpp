@@ -21,7 +21,9 @@ Camera::Camera(float fov, float zNear, float zFar)
     this->zNear = zNear;
     this->zFar = zFar;
     
-    transform.position = Vector3(1.0f, 1.0f, -5.0f);
+    mvmtStep = 0.1f;
+    rotStep = 1.0f;
+    //transform.position = Vector3(1.0f, 1.0f, -5.0f);
     //transform.forward = Vector3(-0.45f, 0.0f, 1.0f);
 }
 
@@ -42,9 +44,27 @@ Matrix4 Camera::GetMvpMatrix(vector<Mesh> meshes)
 
 void Camera::Update()
 {
+    //transform.Rotate(1, Vector3(1, 0, 0));
+
+    //Movement: WASD
+    if (glfwGetKey(Window::GetWindow(), GLFW_KEY_A) == 1)
+        transform.Translate(transform.right * mvmtStep);
+    /*
+    if (glfwGetKey(Window::GetWindow(), GLFW_KEY_D) == 1)
+        transform.Translate(Vector3(mvmtStep, 0, 0));
+    if (glfwGetKey(Window::GetWindow(), GLFW_KEY_W) == 1)
+        transform.Translate(Vector3(0, 0, mvmtStep));
+    if (glfwGetKey(Window::GetWindow(), GLFW_KEY_S) == 1)
+        transform.Translate(Vector3(0, 0, -mvmtStep));
+     */
+    
+    //Rotation: Arrow keys
     if (glfwGetKey(Window::GetWindow(), GLFW_KEY_LEFT) == 1)
-    {
-        //transform.Translate(Vector3(0.01, 0, 0));
-        transform.Rotate(1, Vector3(1, 0, 0));
-    }
+        transform.Rotate(-rotStep, Vector3().Up());
+    if (glfwGetKey(Window::GetWindow(), GLFW_KEY_RIGHT) == 1)
+        transform.Rotate(rotStep, Vector3().Up());
+    if (glfwGetKey(Window::GetWindow(), GLFW_KEY_UP) == 1)
+        transform.Rotate(-rotStep, Vector3().Right());
+    if (glfwGetKey(Window::GetWindow(), GLFW_KEY_DOWN) == 1)
+        transform.Rotate(rotStep, Vector3().Right());
 }

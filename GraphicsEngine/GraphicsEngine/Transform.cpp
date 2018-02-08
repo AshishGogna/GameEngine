@@ -34,15 +34,15 @@ void Transform::Rotate(float angle, Vector3 axis)
     rotation = rotation + axis;
 
     Vector3 view = forward;
-    view = view.Rotate(angle, Vector3().Up() * axis.y).Normalized();
+    view = view.Rotate(axis.y, up).Normalized();
     
-    Vector3 hAxis = (up * axis.x).Cross(view).Normalized();
-    view = view.Rotate(angle, hAxis).Normalized();
+    Vector3 hAxis = (up).Cross(view).Normalized();
+    view = view.Rotate(axis.x, hAxis).Normalized();
     
     forward = view;
     up = forward.Cross(hAxis).Normalized();
-    
-    Util::Print(up.ToString());
+    right = up.Cross(forward).Normalized();
+    //Util::Print(view.ToString());
 }
 
 void Transform::Scale(Vector3 by)
