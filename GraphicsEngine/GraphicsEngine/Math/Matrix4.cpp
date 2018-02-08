@@ -109,7 +109,7 @@ Matrix4 Matrix4::CameraMatrix(Vector3 position, Vector3 fwd, Vector3 up)
 {
     
     Vector3 f = fwd.Normalized();
-    Vector3 r = up.Cross(f).Normalized();
+    Vector3 r = up.Cross(fwd).Normalized();
     Vector3 u = f.Cross(r).Normalized();
     
     Matrix4 rot;
